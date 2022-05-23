@@ -37,7 +37,6 @@ class Berita extends CI_Controller
 
     public function add()
     {
-        $data['title'] = 'Tambah Data Berita';
         $berita = new stdClass();
         $berita->id_berita = null;
         $berita->judul = null;
@@ -67,7 +66,7 @@ class Berita extends CI_Controller
         // $tanggal = date("Y-m-d");
         // $login = userdata('id_user');
         if (isset($_POST['add'])) {
-            $config['upload_path']          = './assets/uploads/';
+            $config['upload_path']          = './assets/uploads/berita/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['max_size']             = 5000;
             $config['max_width']            = 10000;
