@@ -9,6 +9,17 @@ class Users_m extends CI_Model
         return $query;
     }
 
+    function getCount($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_user');
+        if ($id != null) {
+            $this->db->where('id_user !=', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getUser($table, $data = null, $where = null)
     {
         if ($data != null) {
