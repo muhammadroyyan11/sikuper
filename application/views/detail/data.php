@@ -5,7 +5,6 @@
             <a href="<?= site_url('admin/detailperumahan/add')?>" class="btn btn-primary btn-flat">
                     <i class="fa fa-user-plus"></i> Tambah
                 </a>
-            <!-- <button class="btn btn-primary btn-flat" data-toggle="modal" data-target="#modal-default"><i class="fa fa-user-plus"></i> Tambah</button> -->
         </div>
     </div>
 
@@ -16,7 +15,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Perumahan</th>
-                    <th>Jenis Perumahan</th>
+                    <th>Jenis</th>
                     <th>Lokasi</th>
                     <!-- <th>Keterangan</th> -->
                     <th>Fasilitas</th>
@@ -49,11 +48,11 @@
                         <td class="text-center" width="160px">
                             <form action="<?= site_url('admin/detailPerumahan/del') ?>" method="post">
                                 <a href="<?= site_url('admin/detailPerumahan/edit/' . $data->id_perumahan) ?>" class="btn btn-warning btn-xs">
-                                    <i class="fa fa-pencil"></i> Edit
+                                    <i class="fa fa-pencil"></i> 
                                 </a>
                                 <input type="hidden" name="id_perumahan" value="<?= $data->id_perumahan ?>">
                                 <button onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash"></i> Hapus
+                                    <i class="fa fa-trash"></i> 
                                 </button>
                             </form>
                         </td>

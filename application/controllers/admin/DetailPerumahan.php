@@ -55,7 +55,7 @@ class DetailPerumahan extends CI_Controller
             $config['max_size']             = 5000;
             $config['max_width']            = 10000;
             $config['max_height']           = 10000;
-            $config['file_name']            = 'perum-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+            $config['file_name']            = $this->input->post('nama_perumahan') . date('ymd') . '-' . substr(md5(rand()), 0, 10);
 
             $this->load->library('upload', $config);
 
@@ -75,7 +75,7 @@ class DetailPerumahan extends CI_Controller
                 $ketersediaan = $this->input->post('ketersediaan');
                 $nama_pengembang = $this->input->post('nama_pengembang');
                 $total_unit_perumahan = $this->input->post('total_unit_perumahan');
-                $id_jenis_perumahan = $this->input->post('id_jenis_perumahan');
+                $id_jenis_perumahan = $this->input->post('jenis_perumahan');
 
 
                 $data = array(
@@ -111,7 +111,7 @@ class DetailPerumahan extends CI_Controller
                 $ketersediaan = $this->input->post('ketersediaan');
                 $nama_pengembang = $this->input->post('nama_pengembang');
                 $total_unit_perumahan = $this->input->post('total_unit_perumahan');
-                $id_jenis_perumahan = $this->input->post('id_jenis_perumahan');
+                $id_jenis_perumahan = $this->input->post('jenis_perumahan');
 
 
                 $data = array(
@@ -130,7 +130,7 @@ class DetailPerumahan extends CI_Controller
 
                 );
                 // var_dump($data);
-                $this->berita->tambah('tbl_berita', $data);
+                $this->detail->tambah('tbl_perumahan', $data);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
                 redirect('admin/berita');

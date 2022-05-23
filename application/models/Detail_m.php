@@ -31,14 +31,10 @@ class Detail_m extends CI_Model
         return $this->db->get();
     }
 
-    public function add($post)
+    public function tambah($table, $data)
     {
-        $params = [
-            'nama_jenis' => $post['nama_perumahan'],
-        ];
-        $this->db->insert('tbl_perumahan', $params);
+        $this->db->insert($table, $data);
     }
-
     public function del($table, $where)
     {
         $this->db->where($where);
