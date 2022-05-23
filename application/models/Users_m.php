@@ -9,6 +9,15 @@ class Users_m extends CI_Model
         return $query;
     }
 
+    public function getUser($table, $data = null, $where = null)
+    {
+        if ($data != null) {
+            return $this->db->get_where($table, $data)->row_array();
+        } else {
+            return $this->db->get_where($table, $where)->result_array();
+        }
+    }
+
     // public function add($post)
     // {
     //     $params['nama_jenis'] = $post['nama_jenis_perumahan'];

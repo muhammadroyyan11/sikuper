@@ -5,7 +5,7 @@ function cek_login()
     $ci = get_instance();
     if (!$ci->session->has_userdata('login_session')) {
         set_pesan('silahkan login.');
-        redirect('auth');
+        redirect('admin/auth');
     }
 }
 
@@ -36,10 +36,10 @@ function set_pesan($pesan, $tipe = true)
 function userdata($field)
 {
     $ci = get_instance();
-    $ci->load->model('Users_m', 'users');
+    $ci->load->model('Users_m', 'user');
 
-    // $userId = $ci->session->userdata('login_session')['user'];
-    return $ci->users->get();
+    $userId = $ci->session->userdata('login_session')['user'];
+    return $ci->user->getUser('tbl_user', ['id_user' => $userId])[$field];
 }
 
 function output_json($data)

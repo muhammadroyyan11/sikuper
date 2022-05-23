@@ -1,50 +1,39 @@
-<section class="row flexbox-container">
-    <div class="col-xl-8 col-11 d-flex justify-content-center">
-        <div class="card bg-authentication rounded-0 mb-0">
-            <div class="row m-0">
-                <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                    <img src="<?= base_url() ?>assets/app-assets/images/pages/login.png" alt="branding logo">
-                </div>
-                <div class="col-lg-6 col-12 p-0">
-                    <div class="card rounded-0 mb-0 px-2">
-                        <div class="card-header pb-1">
-                            <div class="card-title">
-                                <h4 class="mb-0">Login</h4>
-                            </div>
-                        </div>
-                        <p class="px-2">Welcome back, please login to your account.</p>
-                        <div class="card-content">
-                            <div class="card-body pt-1">
-                                <?= $this->session->flashdata('pesan'); ?>
-                                <?= form_open('', ['class' => 'user']); ?>
-                                <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                    <input type="text" class="form-control" id="user-name" placeholder="Username" name="username" required>
-                                    <div class="form-control-position">
-                                        <i class="feather icon-user"></i>
-                                    </div>
-                                    <label for="user-name">Username</label>
-                                </fieldset>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="<?= base_url() ?>assets//index2.html"><b>SIKUPER LOGIN</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Sign in to start your session</p>
 
-                                <fieldset class="form-label-group position-relative has-icon-left">
-                                    <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required>
-                                    <div class="form-control-position">
-                                        <i class="feather icon-lock"></i>
-                                    </div>
-                                    <label for="user-password">Password</label>
-                                </fieldset>
-                                <a href="<?= site_url('admin/auth/register') ?>" class="btn btn-outline-primary float-left btn-inline">Register</a>
-                                <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
-                                <?= form_close(); ?>
-                            </div>
-                        </div>
-                        <div class="login-footer">
-                            <div class="divider">
-                                <div class="divider-text">&copy; Muhammad Royyan Zamzami</div>
-                            </div>
-                        </div>
+        <form action="" method="post">
+            <?= $this->session->flashdata('pesan'); ?>
+            <div class="form-group has-feedback">
+                <input type="text" name="username" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> Remember Me
+                        </label>
                     </div>
                 </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                </div>
+                <!-- /.col -->
             </div>
-        </div>
+        </form>
+        <!-- /.social-auth-links -->
+
     </div>
-</section>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

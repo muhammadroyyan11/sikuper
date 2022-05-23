@@ -37,18 +37,14 @@ class Auth extends CI_Controller
                 $password = $this->auth->get_password($input['username']);
                 if (password_verify($input['password'], $password)) {
                     $user_db = $this->auth->userdata($input['username']);
-                    if ($user_db['is_active'] != 1) {
-                        set_pesan('akun anda belum aktif/dinonaktifkan. Silahkan hubungi admin.', false);
-                        redirect('admin/auth');
-                    } else {
-                        $userdata = [
-                            'user'  => $user_db['id_user'],
-                            'role'  => $user_db['role'],
-                            'timestamp' => time()
-                        ];
-                        $this->session->set_userdata('login_session', $userdata);
-                        redirect('admin/dashboard');
-                    }
+
+                    $userdata = [
+                        'user'  => $user_db['id_user'],
+                        'role'  => $user_db['role'],
+                        'timestamp' => time()
+                    ];
+                    $this->session->set_userdata('login_session', $userdata);
+                    redirect('admin/dashboard');
                 } else {
                     set_pesan('password salah', false);
                     redirect('admin/auth');

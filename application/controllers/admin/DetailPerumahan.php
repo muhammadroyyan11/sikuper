@@ -7,7 +7,7 @@ class DetailPerumahan extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        // cek_login();     
+        cek_login();     
         // is_admin();  
         $this->load->model('detail_m', 'detail');
         $this->load->model('jenisPerumahan_m', 'jenis');
@@ -133,7 +133,7 @@ class DetailPerumahan extends CI_Controller
                 $this->detail->tambah('tbl_perumahan', $data);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
-                redirect('admin/berita');
+                redirect('admin/detailperumahan');
             }
         }
         if (isset($_POST['edit'])) {

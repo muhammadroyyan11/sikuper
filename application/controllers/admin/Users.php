@@ -19,7 +19,7 @@ class Users extends CI_Controller
     {
         $data['title'] = "User Management";
         $data['users'] = $this->users->get(userdata('id_user'));
-        $this->template->load('template', 'admin/users/data', $data);
+        $this->template->load('template', 'users/data', $data);
     }
 
     private function _validasi($mode)

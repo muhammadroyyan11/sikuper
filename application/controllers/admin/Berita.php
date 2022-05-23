@@ -23,7 +23,7 @@ class Berita extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        // cek_login();     
+        cek_login();     
         // is_admin();  
         $this->load->model('Berita_m', 'berita');
     }
@@ -59,6 +59,13 @@ class Berita extends CI_Controller
         );
 
         $this->template->load('template', 'berita/add', $data);
+    }
+
+    public function del($id_berita)
+    {
+        $where=array('id_berita' => $id_berita);
+		$this->berita->del('tbl_berita',$where);
+		redirect('admin/berita');
     }
 
     public function proses()

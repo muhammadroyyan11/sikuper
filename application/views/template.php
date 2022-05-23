@@ -50,12 +50,11 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="<?= site_url('dashboard') ?>">Dashboard <span class="sr-only">(current)</span></a></li>
-                            <li><a href="<?= site_url('admin/tentangKami') ?>">Tentang kami</a></li>
+                            <li><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
                             <li><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
                             <li><a href="<?= site_url('admin/detailPerumahan') ?>">Detail Perumahan</a></li>
                             <li><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
                             <li><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
-                            <li><a href="<?= site_url('admin/slide') ?>">Slide</a></li>
                             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -81,7 +80,7 @@
                                     <!-- The user image in the navbar-->
                                     <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <span class="hidden-xs"><?= userdata('nama') ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
@@ -89,32 +88,17 @@
                                         <img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            <?= userdata('nama') ?> - Web Developer
                                         </p>
                                     </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Sales</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Friends</a>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
+                                        <!-- <div class="pull-left">
                                             <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
+                                        </div> -->
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="<?= site_url('admin/auth/logout')?>" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -208,7 +192,6 @@
         //bootstrap WYSIHTML5 - text editor
         $('.textarea').wysihtml5()
     })
-    
 </script>
 
 </html>

@@ -17,7 +17,6 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Isi</th>
-                    <th>Gambar</th>
                     <th>Tanggal Upload</th>
                     <th>Aksi(s)</th>
                 </tr>
@@ -37,9 +36,9 @@
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 <input type="hidden" name="id_berita" value="<?= $data->id_berita ?>">
-                                <button onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
+                                <a href="<?= site_url('admin/berita/del/' . $data->id_berita) ?>" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
                                     <i class="fa fa-trash"></i> Hapus
-                                </button>
+                                </a>
                             </form>
                         </td>
                     </tr>

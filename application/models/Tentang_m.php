@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Berita_m extends CI_Model
+class Tentang_m extends CI_Model
 {
 
     // public function get()
@@ -18,7 +18,7 @@ class Berita_m extends CI_Model
     function get($id = null)
     {   
         $this->db->select('*');
-        $this->db->from('tbl_berita');
+        $this->db->from('tbl_tentang_kami');
         if ($id != null) {
            $this->db->where('id_berita !=', $id);
         }
@@ -26,31 +26,9 @@ class Berita_m extends CI_Model
         return $query;
     }
 
-    public function add($post)
+    public function tambah($data)
     {
-        $params = [
-            'judul' => $post['judul'],
-            'isi' => $post['isi'],
-            'tgl_berita' => date('Y m d'),
-            'foto_berita' => $post['image']
-        ];
-        $this->db->insert('tbl_berita', $params);
-    }
-
-    public function tambah($table, $data)
-    {
-        $this->db->insert($table, $data);
-    }
-
-    function check_judul($code, $id = null)
-    {
-        $this->db->from('tbl_berita');
-        $this->db->where('judul', $code);
-        if ($id != null) {
-           $this->db->where('id_berita !=', $id);
-        }
-        $query = $this->db->get();
-        return $query;
+        $this->db->insert('tbl_tentang_kami', $data);
     }
 
     public function del($table, $where)
@@ -61,7 +39,7 @@ class Berita_m extends CI_Model
 
     public function insert($data, $batch = false)
     {
-        return $batch ? $this->db->insert_batch('tbl_berita', $data) : $this->db->insert('tbl_berita' , $data);
+        return $batch ? $this->db->insert_batch('tbl_tentang_kami', $data) : $this->db->insert('tbl_tentang_kami' , $data);
     }
 
     public function edit($post)
