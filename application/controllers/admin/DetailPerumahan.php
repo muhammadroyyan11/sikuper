@@ -36,11 +36,12 @@ class DetailPerumahan extends CI_Controller
         $perumahahan->nama_pengembang = null;
         $perumahahan->total_unit_perumahan = null;
         $perumahahan->id_jenis_perumahan = null;
-        $data['jenis'] = $this->jenis->get();
+        $jenis = $this->detail->getJenis();
         $data = array(
             'title' => 'Tambah data perumahan',
             'page' => 'add',
-            'row' => $perumahahan,
+            'jenis' => $jenis,
+            'row' => $perumahahan
         );
         // $data['detail'] = $this->detail->getJoin();
         $this->template->load('template', 'detail/form', $data);

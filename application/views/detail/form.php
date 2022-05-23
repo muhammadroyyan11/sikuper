@@ -17,9 +17,10 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Jenis Perumahan</label>
                 <div class="col-sm-10">
-                    <select class="form-control">
-                        <?php foreach ($jenis as $key => $data) { ?>
-                            <option><?= $data->nama_jenis ?></option>
+                    <select class="form-control" id="featured" name="kategori">
+                        <option value="">-- Pilih --</option>
+                        <?php foreach ($jenis->result() as $key => $data) { ?>
+                           <option value=""><?= $data->nama_jenis ?></option>
                         <?php } ?>
                     </select>
                 </div>

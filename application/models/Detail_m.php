@@ -14,6 +14,15 @@ class Detail_m extends CI_Model
         return $query;
     }
 
+    public function getJenis()
+    {
+        // $login = $this->session->userdata('id_user');
+        $this->db->select('*');
+        $this->db->from('tbl_jenis_perumahan');
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getJoin()
     {
         $this->db->select('*');
