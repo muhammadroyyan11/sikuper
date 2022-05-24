@@ -2,7 +2,7 @@
     <div class="box-header">
         <h3 class="box-title"><?= $title ?></h3>
         <div class="pull-right">
-            <a href="<?= site_url('admin/detailperumahan/add')?>" class="btn btn-primary btn-flat">
+            <a href="<?= site_url('admin/detailPerumahan/add')?>" class="btn btn-primary btn-flat">
                     <i class="fa fa-user-plus"></i> Tambah
                 </a>
         </div>
