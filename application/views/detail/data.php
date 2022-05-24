@@ -46,15 +46,14 @@
                         <td><?= $data->nama_pengembang ?></td>
                         <td><?= $data->total_unit_perumahan ?></td>
                         <td class="text-center" width="160px">
-                            <form action="<?= site_url('admin/detailPerumahan/del') ?>" method="post">
                                 <a href="<?= site_url('admin/detailPerumahan/edit/' . $data->id_perumahan) ?>" class="btn btn-warning btn-xs">
                                     <i class="fa fa-pencil"></i> 
                                 </a>
-                                <input type="hidden" name="id_perumahan" value="<?= $data->id_perumahan ?>">
-                                <button onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
+                                <a href="<?= site_url('admin/detailPerumahan/del/' . $data->id_perumahan) ?>" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-danger btn-xs">
                                     <i class="fa fa-trash"></i> 
-                                </button>
-                            </form>
+                                </a>
+                                <input type="hidden" name="id_perumahan" value="<?= $data->id_perumahan ?>">
+                            
                         </td>
                     </tr>
                 <?php } ?>

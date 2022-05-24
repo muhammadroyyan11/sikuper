@@ -141,10 +141,10 @@ class DetailPerumahan extends CI_Controller
         }
     }
 
-    public function del($id_perumhan)
+    public function del($id_perumahan)
     {
 
-        $where=array('id_perumahan' => $id_perumhan);
+        $where=array('id_perumahan' => $id_perumahan);
 		$this->detail->del('tbl_perumahan', $where);
 		redirect('admin/detailPerumahan');
     }
