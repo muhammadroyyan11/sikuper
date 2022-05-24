@@ -9,7 +9,7 @@ class JenisPerumahan extends CI_Controller
         parent::__construct();
         // cek_login();     
         // is_admin();  
-        $this->load->model('jenisperumahan_m', 'jenis');
+        $this->load->model('JenisPerumahan_m', 'jenis');
         $this->load->library('form_validation');
     }
 
