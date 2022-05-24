@@ -55,7 +55,6 @@
                                 <input type="hidden" name="id_perumahan" value="<?= $data->id_perumahan ?>">
                             
                         </td>
-                    </tr>
                 <?php } ?>
             </tbody>
         </table>

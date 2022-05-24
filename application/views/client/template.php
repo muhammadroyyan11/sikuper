@@ -2,302 +2,147 @@
 <html lang="en">
 
 <head>
-    <title>TOKO KOPI KOOPEN | <?= $title ?></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/client/images/icons/koopen.png" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/fonts/themify/themify-icons.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/fonts/elegant-font/html-css/style.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/slick/slick.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/lightbox2/css/lightbox.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/css/util.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/css/main.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/assets/css/share.css">
-    <!--===============================================================================================-->
+    <title>Ecoverde - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/animate.css">
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/flaticon.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/style.css">
 </head>
 
-<body class="animsition">
+<body>
 
-    <!-- Header -->
-    <header class="header1">
-        <!-- Header desktop -->
-        <div class="container-menu-header">
-            <div class="topbar">
-                <div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Ecoverde</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
 
-                <span class="topbar-child1">
-                    KOPI DARI MALANG
-                </span>
-
-                <div class="topbar-child2">
-                    <span class="topbar-email">
-                        info@kopikoopen.com
-                    </span>
-                </div>
-            </div>
-
-            <div class="wrap_header">
-                <!-- Logo -->
-                <a href="<?= site_url('home') ?>" class="logo">
-                    <img src="<?= base_url() ?>assets/client/images/icons/koopen.png" alt="IMG-LOGO">
-                </a>
-
-                <!-- Menu -->
-                <div class="wrap_menu">
-                    <nav class="menu">
-                        <ul class="main_menu">
-                            <li>
-                                <a href="<?= site_url('home') ?>">Home</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= site_url('shop') ?>">Shop</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= site_url('outlet') ?>">Outlet</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= site_url('blog') ?>">Blog</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= site_url('about') ?>">About</a>
-                            </li>
-
-                            <li>
-                                <a href="<?= site_url('contact') ?>">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-
-            </div>
-        </div>
-
-        <!-- Header Mobile -->
-        <div class="wrap_header_mobile">
-            <!-- Logo moblie -->
-            <a href="<?= site_url('home') ?>" class="logo-mobile">
-                <img src="<?= base_url() ?>assets/client/images/icons/koopen.png" alt="IMG-LOGO">
-            </a>
-
-            <!-- Button show menu -->
-            <div class="btn-show-menu">
-                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu Mobile -->
-        <div class="wrap-side-menu">
-            <nav class="side-menu">
-                <ul class="main-menu">
-                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-                        <span class="topbar-child1">
-                            Free shipping for standard order over $100
-                        </span>
-                    </li>
-
-                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-                        <div class="topbar-child2-mobile">
-                            <span class="topbar-email">
-                                fashe@example.com
-                            </span>
-
-
-                        </div>
-                    </li>
-
-                    <li class="item-topbar-mobile p-l-10">
-                        <div class="topbar-social-mobile">
-                            <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                            <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                            <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                            <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                            <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                        </div>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('home') ?>">Home</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('shop') ?>">Shop</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('outlet') ?>">Outlet</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('blog') ?>">Blog</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('about') ?>">About</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="<?= site_url('contact') ?>">contact</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link">Agent</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
-
+    </nav>
+    <!-- END nav -->
+    
     <?= $contents ?>
-
-
-    <!-- Footer -->
-    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-        <div class="flex-w p-b-90">
-            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-                <h4 class="s-text12 p-b-30">
-                    Alamat
-                </h4>
-
-                <div>
-                    <p class="s-text7 w-size27" align="justify">
-                        Koopen Klojen :Toko A1, Jl. Trunojoyo, Klojen Sebelah utara stasiun malang kota baru Pojok perampatan, Kota Malang, Jawa Timur 65111<br><br>
-                        Koopen Ijen : Jl. Ijen No.90-92, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65116
-                    </p>
-
-                    <div class="flex-m p-t-30">
-                        <a href="https://www.facebook.com/profile.php?id=100054488229059" class="fs-18 color1 p-r-20 fa fa-facebook" target="_blank"></a>
-                        <a href="https://www.instagram.com/koopen_klojen/" class="fs-18 color1 p-r-20 fa fa-instagram" target="_blank"></a>
+    
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Ecoverde</h2>
+                        <p>Far far away, behind the word mountains, far from the countries.</p>
+                        <ul class="ftco-footer-social list-unstyled mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Community</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Search Properties</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>For Agents</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Reviews</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">About Us</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Our Story</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Meet the team</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Company</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Press</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-envelope pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
 
-            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-                <h4 class="s-text12 p-b-30">
-                    TENTANG KAMI
-                </h4>
-
-                <div>
-                    <p class="s-text7 w-size27" align="justify">
-                        Nama toko ini diambil dari bahasa Belanda “Koopen” yang artinya membeli. Alasan pemilik toko memberi nama dengan bahasa Belanda, karena Malang memiliki kaitan sejarah yang erat dengan Belanda pada masanya. Bahkan sampai saat ini banyak pengunjung dari negeri Belanda yang tertarik untuk merasakan kenikmatan kopi lokal sambil menikmati keindahan Kota Malang.
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
-            </div>
-
-            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-                <h4 class="s-text12 p-b-30">
-                    HUBUNGI KAMI
-                </h4>
-
-                <div>
-
-                    <p class="s-text7 w-size27">
-                        <i class="fs-18 color1 p-r-20 fa fa-clock-o"></i>Senin - Minggu (07.00 - 23.00), Jumat (13.00 - 23.00)<br>
-                        <i class="fs-18 color1 p-r-20 fa fa-phone"> </i> 0838-3437-6927 (Klojen) - 0822-2942-7153 (Ijen) <br>
-                        <i class="fs-18 color1 p-r-20 fa fa-envelope"></i> tokokopi@kopikoopen.com
-                        
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="t-center p-l-15 p-r-15">
-            <div class="t-center s-text8 p-t-20">
-                Copyright © 2022 All rights reserved.
             </div>
         </div>
     </footer>
 
 
 
-    <!-- Back to top -->
-    <div class="btn-back-to-top bg0-hov" id="myBtn">
-        <span class="symbol-btn-back-to-top">
-            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
-        </span>
-    </div>
-
-    <!-- Container Selection1 -->
-    <div id="dropDownSelect1"></div>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+        </svg></div>
 
 
-
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/bootstrap/js/popper.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/select2/select2.min.js"></script>
-    <script type="text/javascript">
-        $(".selection-1").select2({
-            minimumResultsForSearch: 20,
-            dropdownParent: $('#dropDownSelect1')
-        });
-    </script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/slick/slick.min.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/js/slick-custom.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/lightbox2/js/lightbox.min.js"></script>
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="<?= base_url() ?>assets/client/vendor/sweetalert/sweetalert.min.js"></script>
-    <script type="text/javascript">
-        // $('.block2-btn-addcart').each(function() {
-        //     var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-        //     $(this).on('click', function() {
-        //         swal(nameProduct, "is added to cart !", "success");
-        //     });
-        // });
-
-        $('.block2-btn-addwishlist').each(function() {
-            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-            $(this).on('click', function() {
-                swal(nameProduct, "is added to wishlist !", "success");
-            });
-        });
-    </script>
-
-    <!--===============================================================================================-->
+    <script src="<?= base_url() ?>assets/client/js/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/popper.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery.easing.1.3.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery.waypoints.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery.stellar.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/jquery.animateNumber.min.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="<?= base_url() ?>assets/client/js/google-map.js"></script>
     <script src="<?= base_url() ?>assets/client/js/main.js"></script>
-
 
 </body>
 
