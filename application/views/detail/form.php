@@ -5,7 +5,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" action="<?= site_url('admin/detailperumahan/proses')?>" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="<?= site_url('admin/detailPerumahan/proses')?>" method="post" enctype="multipart/form-data">
         <div class="box-body">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Nama Perumahan</label>
