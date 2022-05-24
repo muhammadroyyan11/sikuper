@@ -133,7 +133,7 @@ class DetailPerumahan extends CI_Controller
                 $this->detail->tambah('tbl_perumahan', $data);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
-                redirect('admin/detailperumahan');
+                redirect('admin/detailPerumahan');
             }
         }
         if (isset($_POST['edit'])) {
