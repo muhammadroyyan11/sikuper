@@ -28,7 +28,7 @@ Class Fungsi {
 
     public function count_jenis()
     {
-        $this->ci->load->model('jenisperumahan_m', 'jenis');
+        $this->ci->load->model('jenisPerumahan_m', 'jenis');
         return $this->ci->jenis->get()->num_rows();
     }
 
