@@ -27,6 +27,7 @@ class Home extends CI_Controller {
         $this->load->model('Auth_model', 'auth');
         // $this->load->model('Base_model', 'base');
 		$this->load->model('Detail_m', 'detail');
+		$this->load->model('Berita_m', 'berita');
 		$this->load->library('pagination');
     }
 	public function index()
@@ -36,6 +37,7 @@ class Home extends CI_Controller {
 		// $data['posting'] = $this->base_model->get_artikel()->result();
 		$data['title'] = 'HOME';
 		$data['perumahan'] = $this->detail->getJoinHome();
+		$data['berita'] = $this->berita->getHome();
 		$this->template->load('client/template', 'client/home/home', $data);
 	}
 }

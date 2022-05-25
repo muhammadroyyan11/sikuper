@@ -80,13 +80,69 @@
                                     <span class="location"><?= $data->fasilitas  ?></span>
                                     <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
                                         <span class="fa fa-link"></span>
-                                    </a><hr>
+                                    </a>
+                                    <hr>
                                     <span class="location">Balikpapan, Kalimantan Timur</span>
                                     <span class="text-right"></span>
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                <h2 class="mb-2">Perumahan</h2>
+                <span class="subheading"><a href="#">Lihat semua</a></span>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-properties owl-carousel">
+                    <?php foreach ($berita->result() as $key => $data) { ?>
+                        <div class="item">
+                            <div class="property-wrap ftco-animate">
+                                <a href="#" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/berita/<?= $data->foto_berita ?>);">
+                                </a>
+                                <div class="text">
+                                    <ul class="property_list">
+                                        <li><span class="flaticon-floor-plan"></span> m2</li>
+                                    </ul>
+                                    <h3><a href="#"><?= $data->judul ?></a></h3>
+                                    <span class="location"></span>
+                                    <span class="location"></span>
+                                    <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+                                        <span class="fa fa-link"></span>
+                                    </a>
+                                    <hr>
+                                    <span class="location">Balikpapan, Kalimantan Timur</span>
+                                    <span class="text-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <?php foreach ($berita->result() as $key => $data) { ?>
+                        <div class="col-md-3 d-flex ftco-animate">
+                            <div class="blog-entry justify-content-end">
+                                <div class="text">
+                                    <a href="blog-single.html" class="img" style="background-image: url('<?= base_url() ?>assets/uploads/berita/<?= $data->foto_berita?>');">
+                                    </a>
+                                    <div class="meta mb-3">
+                                        <div><a href="#">June 01, 2020</a></div>
+                                        <div><a href="#">Admin</a></div>
+
+                                    </div>
+                                    <h3 class="heading"><a href="#"><?= $data->judul ?></a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }  ?>
                 </div>
             </div>
         </div>
@@ -180,61 +236,22 @@
             </div>
         </div>
         <div class="row d-flex">
-            <div class="col-md-3 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <div class="text">
-                        <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_1.jpg');">
-                        </a>
-                        <div class="meta mb-3">
-                            <div><a href="#">June 01, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
+            <?php foreach ($berita->result() as $key => $data) { ?>
+                <div class="col-md-3 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                        <div class="text">
+                            <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_1.jpg');">
+                            </a>
+                            <div class="meta mb-3">
+                                <div><a href="#">June 01, 2020</a></div>
+                                <div><a href="#">Admin</a></div>
 
+                            </div>
+                            <h3 class="heading"><a href="#"><?= $data->judul ?></a></h3>
                         </div>
-                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <div class="text">
-                        <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_2.jpg');">
-                        </a>
-                        <div class="meta mb-3">
-                            <div><a href="#">June 01, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-
-                        </div>
-                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <div class="text">
-                        <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_3.jpg');">
-                        </a>
-                        <div class="meta mb-3">
-                            <div><a href="#">June 01, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-
-                        </div>
-                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <div class="text">
-                        <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_4.jpg');">
-                        </a>
-                        <div class="meta mb-3">
-                            <div><a href="#">June 01, 2020</a></div>
-                            <div><a href="#">Admin</a></div>
-                        </div>
-                        <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                    </div>
-                </div>
-            </div>
+            <?php }  ?>
         </div>
     </div>
 </section>

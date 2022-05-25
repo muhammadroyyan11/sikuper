@@ -37,6 +37,15 @@ class Berita_m extends CI_Model
         $this->db->insert('tbl_berita', $params);
     }
 
+    public function getHome()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_berita');
+        // $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
+        $this->db->limit(4);
+        return $this->db->get();
+    }
+
     public function tambah($table, $data)
     {
         $this->db->insert($table, $data);
