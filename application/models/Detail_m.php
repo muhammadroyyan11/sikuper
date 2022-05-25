@@ -31,6 +31,15 @@ class Detail_m extends CI_Model
         return $this->db->get();
     }
 
+    public function getJoinHome()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_perumahan');
+        $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
+        $this->db->limit(5);
+        return $this->db->get();
+    }
+
     public function tambah($table, $data)
     {
         $this->db->insert($table, $data);

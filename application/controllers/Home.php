@@ -25,7 +25,8 @@ class Home extends CI_Controller {
         // cek_login();
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('Auth_model', 'auth');
-        $this->load->model('Base_model', 'base');
+        // $this->load->model('Base_model', 'base');
+		$this->load->model('Detail_m', 'detail');
 		$this->load->library('pagination');
     }
 	public function index()
@@ -33,7 +34,8 @@ class Home extends CI_Controller {
 		// $data['home'] = $this->base_model->get('slide')->result();
 		// $data['barang'] = $this->base_model->get_barang()->result();
 		// $data['posting'] = $this->base_model->get_artikel()->result();
-		$data['title'] = 'Home';
+		$data['title'] = 'HOME';
+		$data['perumahan'] = $this->detail->getJoinHome();
 		$this->template->load('client/template', 'client/home/home', $data);
 	}
 }
