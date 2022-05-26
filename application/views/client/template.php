@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/style.css">
+    
 </head>
 
 <body>
@@ -31,13 +32,13 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="agent.html" class="nav-link">Agent</a></li>
-                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item active"><a href="<?= site_url('home')?>" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="<?= site_url('perumahan')?>" class="nav-link">Perumahan</a></li>
+                    <li class="nav-item"><a href="<?= site_url('berita')?>" class="nav-link">Berita</a></li>
+                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Properties</a></li>
+                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>

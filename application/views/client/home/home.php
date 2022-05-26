@@ -69,7 +69,7 @@
                     <?php foreach ($perumahan->result() as $key => $data) { ?>
                         <div class="item">
                             <div class="property-wrap ftco-animate">
-                                <a href="#" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
+                                <a href="#" class="block-20 img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
                                 </a>
                                 <div class="text">
                                     <ul class="property_list">
@@ -94,60 +94,6 @@
     </div>
 </section>
 
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                <h2 class="mb-2">Perumahan</h2>
-                <span class="subheading"><a href="#">Lihat semua</a></span>
-            </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="col-md-12">
-                <div class="carousel-properties owl-carousel">
-                    <?php foreach ($berita->result() as $key => $data) { ?>
-                        <div class="item">
-                            <div class="property-wrap ftco-animate">
-                                <a href="#" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/berita/<?= $data->foto_berita ?>);">
-                                </a>
-                                <div class="text">
-                                    <ul class="property_list">
-                                        <li><span class="flaticon-floor-plan"></span> m2</li>
-                                    </ul>
-                                    <h3><a href="#"><?= $data->judul ?></a></h3>
-                                    <span class="location"></span>
-                                    <span class="location"></span>
-                                    <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-                                        <span class="fa fa-link"></span>
-                                    </a>
-                                    <hr>
-                                    <span class="location">Balikpapan, Kalimantan Timur</span>
-                                    <span class="text-right"></span>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <?php foreach ($berita->result() as $key => $data) { ?>
-                        <div class="col-md-3 d-flex ftco-animate">
-                            <div class="blog-entry justify-content-end">
-                                <div class="text">
-                                    <a href="blog-single.html" class="img" style="background-image: url('<?= base_url() ?>assets/uploads/berita/<?= $data->foto_berita?>');">
-                                    </a>
-                                    <div class="meta mb-3">
-                                        <div><a href="#">June 01, 2020</a></div>
-                                        <div><a href="#">Admin</a></div>
-
-                                    </div>
-                                    <h3 class="heading"><a href="#"><?= $data->judul ?></a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }  ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="ftco-section ftco-no-pt">
     <div class="container">
@@ -170,69 +116,12 @@
     </div>
 </section>
 
-<section class="ftco-section services-section bg-darken">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center heading-section heading-section-white ftco-animate">
-                <span class="subheading">Work flow</span>
-                <h2 class="mb-3">How it works</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services services-2">
-                    <div class="media-body py-md-4 text-center">
-                        <div class="icon mb-1 d-flex align-items-center justify-content-center"><span>01</span>
-                            <img src="images/blob.svg" alt="">
-                        </div>
-                        <h3>Evaluate Property</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services services-2">
-                    <div class="media-body py-md-4 text-center">
-                        <div class="icon mb-1 d-flex align-items-center justify-content-center"><span>02</span>
-                            <img src="images/blob.svg" alt="">
-                        </div>
-                        <h3>Meet Your Agent</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services services-2">
-                    <div class="media-body py-md-4 text-center">
-                        <div class="icon mb-1 d-flex align-items-center justify-content-center"><span>03</span>
-                            <img src="images/blob.svg" alt="">
-                        </div>
-                        <h3>Close the Deal</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services services-2">
-                    <div class="media-body py-md-4 text-center">
-                        <div class="icon mb-1 d-flex align-items-center justify-content-center"><span>04</span>
-                            <img src="images/blob.svg" alt="">
-                        </div>
-                        <h3>Have Your Property</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="ftco-section ftco-no-pt">
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 heading-section text-center ftco-animate">
                 <h2>Berita Terbaru</h2>
-                <span class="subheading">Blog</span>
+                <span class="subheading"><a href="#">Lihat semua</a></span>
             </div>
         </div>
         <div class="row d-flex">
@@ -240,7 +129,7 @@
                 <div class="col-md-3 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
                         <div class="text">
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('<?= base_url() ?>assets/client/images/image_1.jpg');">
+                            <a href="blog-single.html" class="block-20 img" style="background-image: url(<?= base_url() ?>assets/uploads/berita/ <?= $data->foto_berita?>);">
                             </a>
                             <div class="meta mb-3">
                                 <div><a href="#">June 01, 2020</a></div>
