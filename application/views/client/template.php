@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/style.css">
-    
+
 </head>
 
 <body>
@@ -32,22 +32,20 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="<?= site_url('home')?>" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="<?= site_url('tentang')?>" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="<?= site_url('perumahan')?>" class="nav-link">Perumahan</a></li>
-                    <li class="nav-item"><a href="<?= site_url('berita')?>" class="nav-link">Berita</a></li>
-                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Properties</a></li>
-                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Contact</a></li>
+                    <li class="nav-item active"><a href="<?= site_url('home') ?>" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="<?= site_url('tentang') ?>" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
+                    <li class="nav-item"><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
+                    <li class="nav-item"><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
+                    <li class="nav-item pull-right"><a href="<?= site_url('kontak') ?>" class="nav-link">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- END nav -->
-    
+
     <?= $contents ?>
-    
+
     <footer class="ftco-footer ftco-section">
         <div class="container">
             <div class="row mb-5">
@@ -145,6 +143,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="<?= base_url() ?>assets/client/js/google-map.js"></script>
     <script src="<?= base_url() ?>assets/client/js/main.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/62909c62b0d10b6f3e745058/1g42e5ovo';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 

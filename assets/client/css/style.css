@@ -11257,6 +11257,21 @@ h5,
     height: 700px !important;
 }
 
+.tes-wrap.tes-wrap-2 {
+    height: 350px !important;
+    position: relative;
+}
+
+.tes-wrap.tes-wrap-2 .overlay {
+    width: 100%;
+    opacity: .9;
+    height: 350px;
+}
+
+.tes-wrap.tes-wrap-2 .slider-text {
+    height: 350px !important;
+}
+
 .slider-text {
     height: 850px;
 }
@@ -13831,4 +13846,13 @@ textarea.form-control {
     /* font-size: 13px; */
     color: #888;
     line-height: 1.8;
+}
+
+
+.p-b-60 {
+    padding-bottom: 60px;
+}
+
+.p-t-66 {
+    padding-top: 66px;
 }
