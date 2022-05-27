@@ -52,7 +52,7 @@
                                     <?= $row->isi ?>
 
                                 </span>
-
+                                <br>
                                 <!-- <span>
 										8 Comments
 									</span> -->
