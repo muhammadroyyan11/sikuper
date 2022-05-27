@@ -124,22 +124,27 @@
             </div>
         </div>
         <div class="row d-flex">
-            <?php foreach ($berita->result() as $key => $data) { ?>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
+            <?php foreach ($berita->result() as $key => $data) {
+                $dateMasuk = new DateTime($data->tgl_berita); ?>
+                <div class="col-md-4">
+                    <div class="property-wrap ftco-animate">
+                        <a href="<?= site_url('berita/read/' . $data->id_berita) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/Berita/<?= $data->foto_berita ?>);">
+                        </a>
                         <div class="text">
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url(<?= base_url() ?>assets/uploads/berita/ <?= $data->foto_berita?>);">
+                            <h3><a href="#"><?= $data->judul ?></a></h3>
+                            <span class="location"><?= character_limiter($data->isi, 75) ?></span><br>
+                            <a href="<?= base_url("berita/read/$data->id_berita") ?>" class="s-text20">
+                                Continue Reading
+                                <i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
                             </a>
-                            <div class="meta mb-3">
-                                <div><a href="#">June 01, 2020</a></div>
-                                <div><a href="#">Admin</a></div>
-
+                            <div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
+                                <span class="location">By Admin</span>
+                                <span class="text-right"><?= $dateMasuk->format('d F Y') ?></span>
                             </div>
-                            <h3 class="heading"><a href="#"><?= $data->judul ?></a></h3>
                         </div>
                     </div>
                 </div>
-            <?php }  ?>
+            <?php } ?>
         </div>
     </div>
 </section>

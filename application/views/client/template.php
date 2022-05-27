@@ -33,6 +33,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="<?= site_url('home')?>" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="<?= site_url('tentang')?>" class="nav-link">Tentang Kami</a></li>
                     <li class="nav-item"><a href="<?= site_url('perumahan')?>" class="nav-link">Perumahan</a></li>
                     <li class="nav-item"><a href="<?= site_url('berita')?>" class="nav-link">Berita</a></li>
                     <li class="nav-item"><a href="<?= site_url('home')?>" class="nav-link">Services</a></li>
