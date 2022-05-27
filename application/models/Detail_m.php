@@ -14,6 +14,15 @@ class Detail_m extends CI_Model
         return $query;
     }
 
+    public function getPerumahan($id_perumahan)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_perumahan');
+        $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
+        $this->db->where('id_perumahan', $id_perumahan);
+        return $this->db->get()->row();
+    }
+
     public function getJenis()
     {
         // $login = $this->session->userdata('id_user');

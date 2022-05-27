@@ -22,7 +22,7 @@
                 $dateMasuk = new DateTime($data->tgl_berita); ?>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="properties-single.html" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/Berita/<?= $data->foto_berita ?>);">
+                        <a href="<?= site_url('berita/read/' . $data->id_berita)?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/Berita/<?= $data->foto_berita ?>);">
                         </a>
                         <div class="text">
                             <h3><a href="#"><?= $data->judul ?></a></h3>

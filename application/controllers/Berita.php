@@ -21,4 +21,16 @@ class Berita extends CI_Controller
 		$data['title'] = 'BERITA';
 		$this->template->load('client/template', 'client/berita/berita', $data);
 	}
+
+	public function read($id_berita)
+	{
+		$id = $this->berita->getBerita($id_berita);
+
+		$data = array(
+            'title' => 'BACA BERITA',
+            'row' => $id
+        );
+
+		$this->template->load('client/template', 'client/berita/read',$data);
+	}
 }

@@ -21,4 +21,25 @@ class Perumahan extends CI_Controller
 		$data['title'] = 'PERUMAHAN';
 		$this->template->load('client/template', 'client/perumahan/perumahan', $data);
 	}
+
+	public function detail($id_perumahan)
+	{
+		// echo $id_perumahan;
+		$row = $this->detail->get($id_perumahan)->row();
+
+		$data['row'] = $row;
+		$data['title'] = $row->nama_perumahan;
+
+		$this->template->load('client/template', 'client/perumahan/detail', $data);
+	}
+
+	public function read($id_perumahan)
+	{
+		$row = $this->detail->getPerumahan($id_perumahan);
+
+		$data['row'] = $row;
+		$data['title'] = $row->nama_perumahan;
+
+		$this->template->load('client/template', 'client/perumahan/detail', $data);
+	}
 }

@@ -21,7 +21,7 @@
             <?php foreach ($perumahan->result() as $key => $data) { ?>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="properties-single.html" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
+                        <a href="<?= site_url('perumahan/read/' . $data->id_perumahan)?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
                         </a>
                         <div class="text">
                             <ul class="property_list">
