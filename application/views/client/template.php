@@ -37,7 +37,14 @@
                     <li class="nav-item"><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
                     <li class="nav-item"><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
                     <li class="nav-item"><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
-                    <li class="nav-item pull-right"><a href="<?= site_url('kontak') ?>" class="nav-link">Login</a></li>
+                    <?php
+                    if ($this->session->has_userdata('login_session')) { ?>
+                        <li class="nav-item pull-right"><a href="<?= site_url('auth/logout') ?>" class="nav-link"><?= userdata('nama') ?> <i class="fa fa-user-circle-o"></i></a></li>
+                    <?php } else { ?>
+                        <li class="nav-item pull-right"><a href="<?= site_url('auth') ?>" class="nav-link">Login</a></li>
+                    <?php }
+                    ?>
+
                 </ul>
             </div>
         </div>
@@ -145,19 +152,22 @@
     <script src="<?= base_url() ?>assets/client/js/main.js"></script>
 
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/62909c62b0d10b6f3e745058/1g42e5ovo';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
+    <?php if (is_user()) { ?>
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {},
+                Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"),
+                    s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/62909c62b0d10b6f3e745058/1g42e5ovo';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+    <?php } ?>
+
     <!--End of Tawk.to Script-->
 
 </body>

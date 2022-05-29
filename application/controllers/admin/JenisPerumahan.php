@@ -7,8 +7,8 @@ class JenisPerumahan extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        // cek_login();     
-        // is_admin();  
+        cek_login();     
+        is_admin();  
         $this->load->model('JenisPerumahan_m', 'jenis');
         $this->load->library('form_validation');
     }

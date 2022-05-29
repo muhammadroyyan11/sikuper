@@ -1,10 +1,10 @@
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?= base_url() ?>assets//index2.html"><b>SIKUPER LOGIN</b></a>
+        <a href="#"><b>SIKUPER LOGIN</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">silahkan Login</p>
 
         <form action="" method="post">
             <?= $this->session->flashdata('pesan'); ?>
@@ -28,9 +28,12 @@
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
+                
                 <!-- /.col -->
             </div>
+            
         </form>
+        <a href="<?= site_url('auth/register')?>">Buat Akun Baru</a><br>
         <!-- /.social-auth-links -->
 
     </div>

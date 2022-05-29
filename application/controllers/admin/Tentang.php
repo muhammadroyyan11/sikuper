@@ -8,6 +8,7 @@ class Tentang extends CI_Controller
     {
         parent::__construct();
         cek_login();
+        is_admin();  
         date_default_timezone_set('Asia/Jakarta');
         // // $this->load->model('Auth_model', 'auth');
         // $this->load->model('Admin_model', 'admin');

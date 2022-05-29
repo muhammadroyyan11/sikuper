@@ -5,7 +5,7 @@ function cek_login()
     $ci = get_instance();
     if (!$ci->session->has_userdata('login_session')) {
         // set_pesan('silahkan login.');
-        redirect('admin/auth');
+        redirect('auth');
     }
 }
 
@@ -16,7 +16,21 @@ function is_admin()
 
     $status = true;
 
-    if ($role != 'master') {
+    if ($role != 1) {
+        $status = false;
+    }
+
+    return $status;
+}
+
+function is_user()
+{
+    $ci = get_instance();
+    $role = $ci->session->userdata('login_session')['role'];
+
+    $status = true;
+
+    if ($role != 2) {
         $status = false;
     }
 

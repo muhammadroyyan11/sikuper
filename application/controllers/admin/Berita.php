@@ -24,7 +24,7 @@ class Berita extends CI_Controller
     {
         parent::__construct();
         cek_login();     
-        // is_admin();  
+        is_admin();  
         $this->load->model('Berita_m', 'berita');
     }
 

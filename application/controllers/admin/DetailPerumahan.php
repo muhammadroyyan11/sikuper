@@ -8,7 +8,7 @@ class DetailPerumahan extends CI_Controller
     {
         parent::__construct();
         cek_login();     
-        // is_admin();  
+        is_admin();  
         $this->load->model('detail_m', 'detail');
         $this->load->model('jenisPerumahan_m', 'jenis');
         $this->load->library('form_validation');
