@@ -32,11 +32,11 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="<?= site_url('home') ?>" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="<?= site_url('tentang') ?>" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
-                    <li class="nav-item"><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
-                    <li class="nav-item"><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
+                    <li <?=$this->uri->segment(1) == 'home' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('home') ?>" class="nav-link">Home</a></li>
+                    <li <?=$this->uri->segment(1) == 'tentang' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('tentang') ?>" class="nav-link">Tentang Kami</a></li>
+                    <li <?=$this->uri->segment(1) == 'berita' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
+                    <li <?=$this->uri->segment(1) == 'perumahan' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
+                    <li <?=$this->uri->segment(1) == 'kontak' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
                     <?php
                     if ($this->session->has_userdata('login_session')) { ?>
                         <li class="nav-item pull-right"><a href="<?= site_url('auth/logout') ?>" class="nav-link"><?= userdata('nama') ?> <i class="fa fa-user-circle-o"></i></a></li>

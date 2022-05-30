@@ -49,12 +49,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="<?= site_url('dashboard') ?>">Dashboard <span class="sr-only">(current)</span></a></li>
-                            <li><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
-                            <li><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
-                            <li><a href="<?= site_url('admin/detailPerumahan') ?>">Detail Perumahan</a></li>
-                            <li><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
-                            <li><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
+                            <li <?=$this->uri->segment(1) == 'dashboard' ? 'class="active"' : ''?>><a href="<?= site_url('dashboard') ?>">Dashboard</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/tentang' ? 'class="active"' : ''?>><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/jenisPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/detailPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/detailPerumahan') ?>">Detail Perumahan</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/berita' ? 'class="active"' : ''?>><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/users' ? 'class="active"' : ''?>><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
                             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
