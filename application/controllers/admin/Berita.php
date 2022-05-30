@@ -23,8 +23,8 @@ class Berita extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        cek_login();     
-        is_admin();  
+        cek_login();
+        is_admin();
         $this->load->model('Berita_m', 'berita');
     }
 
@@ -41,6 +41,7 @@ class Berita extends CI_Controller
         $berita->id_berita = null;
         $berita->judul = null;
         $berita->isi = null;
+        $berita->tgl_berita = null;
         $data = array(
             'title' => 'Tambah Data Berita',
             'page' => 'add',
@@ -63,9 +64,9 @@ class Berita extends CI_Controller
 
     public function del($id_berita)
     {
-        $where=array('id_berita' => $id_berita);
-		$this->berita->del('tbl_berita',$where);
-		redirect('admin/berita');
+        $where = array('id_berita' => $id_berita);
+        $this->berita->del('tbl_berita', $where);
+        redirect('admin/berita');
     }
 
     public function proses()
@@ -87,15 +88,20 @@ class Berita extends CI_Controller
 
                 // redirect('campaign/add');
                 $gambar = $this->upload->data();
-                $gambar =  'berita-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+                $gambar =  $gambar['file_name'];
+
                 $judul = $this->input->post('judul');
                 $isi = $this->input->post('isi');
+                $post = $this->input->post(null, TRUE);
+                $gambar = $post['userfile'];
+                $date = date('Y-m-d');
 
 
                 $data = array(
-                    'judul' => $judul,
-                    'isi' => $isi,
+                    'judul' => $post['judul'],
+                    'isi' => $post['isi'],
                     'foto_berita' => $gambar,
+                    'tgl_berita' => $post['tgl_berita']
 
                 );
                 var_dump($data);
@@ -106,19 +112,22 @@ class Berita extends CI_Controller
 
                 $gambar = $this->upload->data();
                 $gambar =  $gambar['file_name'];
+
                 $judul = $this->input->post('judul');
                 $isi = $this->input->post('isi');
+                $post = $this->input->post(null, TRUE);
+                // $gambar = $post['userfile'];
                 $date = date('Y-m-d');
 
 
                 $data = array(
-                    'judul' => $judul,
-                    'isi' => $isi,
-                    'foto_berita' => $this->upload->data('file_name'),
-                    'tgl_berita' => $date
+                    'judul' => $post['judul'],
+                    'isi' => $post['isi'],
+                    'foto_berita' => $gambar,
+                    'tgl_berita' => date('Y-m-d')
 
                 );
-                // var_dump($data);
+                var_dump($data);
                 $this->berita->tambah('tbl_berita', $data);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
@@ -126,7 +135,65 @@ class Berita extends CI_Controller
             }
         }
         if (isset($_POST['edit'])) {
-            echo 'ok';
+            $config['upload_path']          = './assets/uploads/berita/';
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['max_size']             = 5000;
+            $config['max_width']            = 10000;
+            $config['max_height']           = 10000;
+            $config['file_name']            = 'berita-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('userfile')) {
+                // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
+
+                // redirect('campaign/add');
+                $gambar = $this->upload->data();
+                $gambar =  $gambar['file_name'];
+
+                $judul = $this->input->post('judul');
+                $isi = $this->input->post('isi');
+                $post = $this->input->post(null, TRUE);
+                // $gambar = $post['userfile'];
+                $date = date('Y-m-d');
+
+
+                $data = array(
+                    'judul' => $post['judul'],
+                    'isi' => $post['isi'],
+                    'foto_berita' => $gambar,
+                    'tgl_berita' => date('Y-m-d')
+
+                );
+                var_dump($data);
+                // $this->berita->edit('tbl_berita',  $data, $id);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+                // redirect('admin/berita');
+            } else {
+
+                $gambar = $this->upload->data();
+                $gambar =  $gambar['file_name'];
+
+                $judul = $this->input->post('judul');
+                $isi = $this->input->post('isi');
+                $post = $this->input->post(null, TRUE);
+                // $gambar = $post['userfile'];
+                $date = date('Y-m-d');
+
+
+                $data = array(
+                    'judul' => $post['judul'],
+                    'isi' => $post['isi'],
+                    'foto_berita' => $gambar,
+                    'tgl_berita' => date('Y-m-d')
+
+                );
+                var_dump($data);
+                // $this->berita->edit('tbl_berita', $data);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+
+                // redirect('admin/berita');
+            }
         }
     }
 }

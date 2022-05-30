@@ -15,12 +15,12 @@ class Berita_m extends CI_Model
     //     $this->db->insert('tbl_jenis_perumahan', $params);
     // }
 
-    function get($id = null)
+    function get($id_berita = null)
     {   
         $this->db->select('*');
         $this->db->from('tbl_berita');
-        if ($id != null) {
-           $this->db->where('id_berita !=', $id);
+        if ($id_berita != null) {
+           $this->db->where('id_berita', $id_berita);
         }
         $query = $this->db->get();
         return $query;
@@ -44,6 +44,24 @@ class Berita_m extends CI_Model
             'foto_berita' => $post['image']
         ];
         $this->db->insert('tbl_berita', $params);
+    }
+
+    public function edit($table, $data, $id)
+    {
+        // $params = [
+        //     'judul' => $post['judul'],
+        //     'isi' => $post['isi'],
+        //     'tgl_berita' => date('Y m d')
+        // ];
+
+        // if ($post['userfile'] != null) {
+        //     $params = [
+        //         'foto_berita' => $post['userfile']
+        //     ];
+        // }
+        $this->db->where('id_berita', $id);
+        $this->db->update($table, $data);
+        // $this->db->update('tbl_berita', $params);
     }
 
     public function getHome()
@@ -80,13 +98,5 @@ class Berita_m extends CI_Model
     public function insert($data, $batch = false)
     {
         return $batch ? $this->db->insert_batch('tbl_berita', $data) : $this->db->insert('tbl_berita' , $data);
-    }
-
-    public function edit($post)
-    {
-        $params['name'] = $post['name_loket'];
-        $params['keterangan'] = $post['keterangan'];
-        $this->db->where('loket_id', $post['loket_id']);
-        $this->db->update('loket', $params);
     }
 }

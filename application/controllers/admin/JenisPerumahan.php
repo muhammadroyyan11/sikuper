@@ -22,10 +22,31 @@ class JenisPerumahan extends CI_Controller
         $this->template->load('template', 'jenis_perumahan/data', $data);
     }
 
+    public function edit($id_jenis_perumahan)
+    {
+        $post = $this->input->post(null, true);
+        $id = $this->jenis->get($id_jenis_perumahan)->row();
+
+        $data['title'] = 'Edit Jenis Perumahan';
+        $data['row'] = $id;
+        $this->template->load('template', 'jenis_perumahan/form', $data);
+    }
+
+    public function edit2($id_jenis_perumahan)
+    {
+        $post = $this->input->post(null, TRUE);
+        // $id_jeniss_perumahan = $post['id_jenis_perumahan'];
+        $this->jenis->edit($post);
+
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');
+        }
+    }
+
     public function proses()
     {
         $post = $this->input->post(null, TRUE);
-        $this->jenis->add($post);
+        $this->jenis->edit($post);
 
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');

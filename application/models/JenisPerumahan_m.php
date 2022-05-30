@@ -3,9 +3,14 @@
 class JenisPerumahan_m extends CI_Model
 {
 
-    public function get()
+    public function get($id_jenis_perumahan = null)
     {
-        $query = $this->db->get('tbl_jenis_perumahan');
+        $this->db->select('*');
+        $this->db->from('tbl_jenis_perumahan');
+        if ($id_jenis_perumahan != null) {
+           $this->db->where('id_jenis_perumahan', $id_jenis_perumahan);
+        }
+        $query = $this->db->get();
         return $query;
     }
 
@@ -24,9 +29,8 @@ class JenisPerumahan_m extends CI_Model
     }
     public function edit($post)
     {
-        $params['name'] = $post['name_loket'];
-        $params['keterangan'] = $post['keterangan'];
-        $this->db->where('loket_id', $post['loket_id']);
-        $this->db->update('loket', $params);
+        $params['nama_jenis'] = $post['nama_jenis'];
+        $this->db->where('id_jenis_perumahan', $post['id_jenis_perumahan']);
+        $this->db->update('tbl_jenis_perumahan', $params);
     }
 }

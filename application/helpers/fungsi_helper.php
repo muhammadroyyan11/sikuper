@@ -52,7 +52,7 @@ function userdata($field)
     $ci = get_instance();
     $ci->load->model('Users_m', 'user');
 
-    $userId = $ci->session->userdata('login_session')['user'];
+    $userId =  $ci->session->userdata('login_session')['user'];
     return $ci->user->getUser('tbl_user', ['id_user' => $userId])[$field];
 }
 

@@ -43,7 +43,7 @@ class Fungsi
     function user_login()
     {
         $this->ci->load->model('users_m');
-        $user_id = $this->ci->session->userdata('iduser');
+        $user_id = $this->ci->session->userdata('id_user');
         $user_data = $this->ci->users_m->getCount($user_id)->row();
         return $user_data;
     }
