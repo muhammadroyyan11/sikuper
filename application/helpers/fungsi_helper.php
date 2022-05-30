@@ -62,3 +62,4 @@ function output_json($data)
     $data = json_encode($data);
     $ci->output->set_content_type('application/json')->set_output($data);
 }
+

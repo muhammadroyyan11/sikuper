@@ -14,7 +14,7 @@ class Users_m extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_user');
         if ($id != null) {
-            $this->db->where('id_user !=', $id);
+            $this->db->where('id_user', $id);
         }
         $query = $this->db->get();
         return $query;

@@ -1,11 +1,13 @@
-<?php 
+<?php
 
-Class Fungsi {
+class Fungsi
+{
 
     protected $ci;
 
-    public function __construct() {
-        $this->ci =& get_instance();
+    public function __construct()
+    {
+        $this->ci = &get_instance();
     }
 
     public function count_berita()
@@ -36,6 +38,14 @@ Class Fungsi {
     {
         $this->ci->load->model('antrianloket_m');
         return $this->ci->antrianloket_m->getAll()->num_rows();
+    }
+
+    function user_login()
+    {
+        $this->ci->load->model('users_m');
+        $user_id = $this->ci->session->userdata('iduser');
+        $user_data = $this->ci->users_m->getCount($user_id)->row();
+        return $user_data;
     }
 
     // public function count_item()

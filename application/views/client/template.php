@@ -32,11 +32,13 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li <?=$this->uri->segment(1) == 'home' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('home') ?>" class="nav-link">Home</a></li>
-                    <li <?=$this->uri->segment(1) == 'tentang' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('tentang') ?>" class="nav-link">Tentang Kami</a></li>
-                    <li <?=$this->uri->segment(1) == 'berita' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
-                    <li <?=$this->uri->segment(1) == 'perumahan' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
-                    <li <?=$this->uri->segment(1) == 'kontak' ? 'class="nav-item active"' : 'class="nav-item"'?>><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
+                    <li <?= $this->uri->segment(1) == 'home' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('home') ?>" class="nav-link">Home</a></li>
+
+                    <li <?= $this->uri->segment(1) == 'tentang' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('tentang') ?>" class="nav-link">Tentang Kami</a></li>
+
+                    <li <?= $this->uri->segment(1) == 'berita' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('berita') ?>" class="nav-link">Berita</a></li>
+                    <li <?= $this->uri->segment(1) == 'perumahan' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('perumahan') ?>" class="nav-link">Perumahan</a></li>
+                    <li <?= $this->uri->segment(1) == 'kontak' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
                     <?php
                     if ($this->session->has_userdata('login_session')) { ?>
                         <li class="nav-item pull-right"><a href="<?= site_url('auth/logout') ?>" class="nav-link"><?= userdata('nama') ?> <i class="fa fa-user-circle-o"></i></a></li>
@@ -152,7 +154,7 @@
     <script src="<?= base_url() ?>assets/client/js/main.js"></script>
 
     <!--Start of Tawk.to Script-->
-    <?php if (is_user()) { ?>
+    <?php if (userdata('role') == 2) { ?>
         <script type="text/javascript">
             var Tawk_API = Tawk_API || {},
                 Tawk_LoadStart = new Date();
@@ -167,6 +169,8 @@
             })();
         </script>
     <?php } ?>
+
+
 
     <!--End of Tawk.to Script-->
 
