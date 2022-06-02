@@ -11,6 +11,7 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Nama Perumahan</label>
 
                 <div class="col-sm-10">
+                    <input type="text" value="<?= $row->id_perumahan?>" name="id_perumahan">
                     <input type="text" class="form-control" id="inputEmail3" name="nama_perumahan" value="<?= $row->nama_perumahan ?>" placeholder="Nama Perumahan">
                 </div>
             </div>
@@ -104,19 +105,17 @@
                 <?php
 
                 if ($row->foto_perumahan != null) {
-                    if ($page == 'edit') { ?>
-                        <img src="<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>" alt="" width="50%" style="margin-top: 10px;">
-                    <?php }
-                }
-                if ($page == 'add') { ?>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;" required>
-                    </div>
-                <?php } else { ?>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;">
-                    </div>
-                <?php } ?>
+                    if ($page == 'add') { ?>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;" required>
+                        </div>
+                    <?php } else { ?>
+                        <div class="col-sm-10">
+                            <img src="<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>" alt="" width="50%" style="margin-top: 10px;">
+                            <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;">
+                        </div>
+                <?php }
+                } ?>
             </div>
         </div>
         <!-- /.box-body -->

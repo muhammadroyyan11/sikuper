@@ -65,63 +65,61 @@ class DetailPerumahan extends CI_Controller
 
     public function proses()
     {
+        $post = $this->input->post(null, TRUE);
+
+        $config['upload_path']          = './assets/uploads/perumahan/';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 5000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+        $config['file_name']            = $this->input->post('nama_perumahan') . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+        $this->load->library('upload', $config);
+
         if (isset($_POST['add'])) {
-            $config['upload_path']          = './assets/uploads/perumahan/';
-            $config['allowed_types']        = 'jpg|png|jpeg';
-            $config['max_size']             = 5000;
-            $config['max_width']            = 10000;
-            $config['max_height']           = 10000;
-            $config['file_name']            = $this->input->post('nama_perumahan') . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-
-            $this->load->library('upload', $config);
-
-            if (isset($_POST['add'])) {
-                if (@$_FILES['image']['name'] != null) {
-                    if ($this->upload->do_upload('image')) {
-                        $post['image'] = $this->upload->data('file_name');
-                        $this->berita->add($post);
-                        if ($this->db->affected_rows() > 0) {
-                            set_pesan('succes', 'Data Berhasil Dismpan');
-                        }
-                        var_dump($post);
-                        redirect('admin/berita');
-                    } else {
-                        $error = $this->upload->display_error();
-                        echo $error;
-                    }
-                }
-            }
-            if (isset($_POST['edit'])) {
-                if (@$_FILES['image']['name'] != null) {
-                    if ($this->upload->do_upload('image')) {
-                        $item = $this->detail->get($post['id_detail'])->row();
-                        if ($item->foto_detail != null) {
-                            $target_file = './assets/uploads/perumahan/' . $item->foto_detail;
-                            unlink($target_file);
-                        }
-                        $post['image'] = $this->upload->data('file_name');
-                        $this->detail->edit($post);
-                        if ($this->db->affected_rows() > 0) {
-                            set_pesan('succes', 'Data Berhasil Dismpan');
-                        }
-                        // var_dump($post);
-                        redirect('admin/detailPerumahan');
-                    } else {
-                        $error = $this->upload->display_error();
-                        echo $error;
-                    }
-                } else {
-                    $post['image'] = null;
-                    $this->berita->edit($post);
+            if (@$_FILES['image']['name'] != null) {
+                if ($this->upload->do_upload('image')) {
+                    $post['image'] = $this->upload->data('file_name');
+                    $this->detail->add($post);
                     if ($this->db->affected_rows() > 0) {
                         set_pesan('succes', 'Data Berhasil Dismpan');
                     }
-                    redirect('admin/berita');
+                    var_dump($post);
+                    redirect('admin/detailPerumahan');
+                } else {
+                    $error = $this->upload->display_error();
+                    echo $error;
                 }
             }
         }
         if (isset($_POST['edit'])) {
-            echo 'ok';
+            if (@$_FILES['image']['name'] != null) {
+                if ($this->upload->do_upload('image')) {
+                    $item = $this->detail->get($post['id_perumahan'])->row();
+                    if ($item->foto_perumahan != null) {
+                        $target_file = './assets/uploads/perumahan/' . $item->foto_perumahan;
+                        unlink($target_file);
+                    }
+                    $post['image'] = $this->upload->data('file_name');
+                    $this->detail->edit($post);
+                    if ($this->db->affected_rows() > 0) {
+                        set_pesan('succes', 'Data Berhasil Dismpan');
+                    }
+                    var_dump($post);
+                    // redirect('admin/DetailPerumahan');
+                } else {
+                    $error = $this->upload->display_error();
+                    echo $error;
+                }
+            } else {
+                $post['image'] = null;
+                // var_dump($post);
+                $this->detail->edit($post);
+                if ($this->db->affected_rows() > 0) {
+                    set_pesan('succes', 'Data Berhasil Dismpan');
+                }
+                redirect('admin/DetailPerumahan');
+            }
         }
     }
 

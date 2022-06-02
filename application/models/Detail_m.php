@@ -70,16 +70,32 @@ class Detail_m extends CI_Model
         ];
         $this->db->insert('tbl_perumahan', $params);
     }
+
+    public function edit($post)
+    {
+        $params = [
+            'nama_perumahan' => $post['nama_perumahan'],
+            'lokasi' => $post['lokasi'],
+            'ket_perumahan' => $post['ket_perumahan'],
+            'fasilitas' => $post['fasilitas'],
+            'alamat' => $post['alamat'],
+            'luas_tanah' => $post['luas_tanah'],
+            'tentang_perumahan' => $post['tentang_perumahan'],
+            'ketersediaan' => $post['ketersediaan'],
+            'nama_pengembang' => $post['nama_pengembang'],
+            'total_unit_perumahan' => $post['total_unit_perumahan'],
+            'id_jenis_perumahan' => $post['jenis_perumahan']
+        ];
+        if ($post['image'] != null) {
+            $params['foto_perumahan'] = $post['image'];
+        }
+        $this->db->where('id_perumahan', $post['id_perumahan']);
+        $this->db->update('tbl_perumahan', $params);
+    }
+    
     public function del($table, $where)
     {
         $this->db->where($where);
         $this->db->delete($table);
-    }
-    public function edit($post)
-    {
-        $params['name'] = $post['name_loket'];
-        $params['keterangan'] = $post['keterangan'];
-        $this->db->where('loket_id', $post['loket_id']);
-        $this->db->update('loket', $params);
     }
 }
