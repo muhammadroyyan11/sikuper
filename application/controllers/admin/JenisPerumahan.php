@@ -46,7 +46,7 @@ class JenisPerumahan extends CI_Controller
     public function proses()
     {
         $post = $this->input->post(null, TRUE);
-        $this->jenis->edit($post);
+        $this->jenis->add($post);
 
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');

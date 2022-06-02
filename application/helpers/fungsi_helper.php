@@ -12,7 +12,7 @@ function cek_login()
 function is_admin()
 {
     $ci = get_instance();
-    $role = $ci->session->userdata('login_session')['role'];
+    $role = isset($ci->session->userdata('login_session')['role']);
 
     $status = true;
 
@@ -26,7 +26,7 @@ function is_admin()
 function is_user()
 {
     $ci = get_instance();
-    $role = $ci->session->userdata('login_session')['role'];
+    $role = isset($ci->session->userdata('login_session')['role']);
 
     $status = true;
 

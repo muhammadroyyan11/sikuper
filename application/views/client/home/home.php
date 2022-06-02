@@ -1,4 +1,4 @@
-<section class="hero-wrap" style="background-image: url('<?= base_url() ?>assets/client/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap" style="background-image: url('<?= base_url() ?>assets/uploads/bg.jpeg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center">
@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-7 order-md-last d-flex align-items-stretch">
                 <!-- <div class="img w-100 img-2 mr-md-2" style="background-image: url(<?= base_url() ?>assets/client/images/about.jpg);"></div> -->
-                <div class="img w-100 img-2 ml-md-2" style="background-image: url(<?= base_url() ?>assets/client/images/about-2.jpg);"></div>
+                <div class="img w-100 img-2 ml-md-2" style="background-image: url(<?= base_url() ?>assets/uploads/tes.jpeg);"></div>
             </div>
             <div class="col-md-5 wrap-about py-md-5 ftco-animate">
                 <div class="heading-section pr-md-5">
@@ -89,27 +89,6 @@
                         </div>
                     <?php } ?>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section ftco-no-pt">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                <span class="subheading">Properties</span>
-                <h2 class="mb-2">Properties for this Cities</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#" class="search-place img" style="background-image: url(<?= base_url() ?>assets/client/images/place-1.jpg);">
-                    <div class="desc">
-                        <h3><span>Miami</span></h3>
-                        <span>24 Properties</span>
-                    </div>
-                </a>
             </div>
         </div>
     </div>

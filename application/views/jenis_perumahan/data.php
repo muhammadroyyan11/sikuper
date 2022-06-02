@@ -58,7 +58,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="nama_jenis_perumahan">Nama Jenis Perumahan</label>
-                            <input type="text" class="form-control" id="nama_jenis_perumahan" value="" name="nama_jenis_perumahan" placeholder="Enter email">
+                            <input type="text" class="form-control" id="nama_jenis_perumahan" value="" name="nama_jenis_perumahan" placeholder="Masukkan Nama Jenis">
                         </div>
                         <!-- /.box-body -->
                         <div class="modal-footer">

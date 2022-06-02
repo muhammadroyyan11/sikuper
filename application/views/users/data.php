@@ -24,7 +24,9 @@
             <tbody>
                 <?php
                 $no = 1;
-                foreach ($users->result() as $key => $data) { ?>
+                foreach ($users->result() as $key => $data) {
+                    if ($data->role != 1) :
+                     ?>
                     <tr>
                         <td style="width:10%;"><?= $no++ ?>.</td>
                         <td><?= $data->nama ?></td>
@@ -42,7 +44,9 @@
                             </form>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php 
+                endif;
+            } ?>
             </tbody>
         </table>
     </div>

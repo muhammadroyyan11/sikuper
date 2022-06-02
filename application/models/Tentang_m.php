@@ -2,19 +2,6 @@
 
 class Tentang_m extends CI_Model
 {
-
-    // public function get()
-    // {
-    //     $query = $this->db->get('tbl_berita');
-    //     return $query;
-    // }
-
-    // public function add($post)
-    // {
-    //     $params['nama_jenis'] = $post['nama_jenis_perumahan'];
-    //     $this->db->insert('tbl_jenis_perumahan', $params);
-    // }
-
     function get($id = null)
     {   
         $this->db->select('*');

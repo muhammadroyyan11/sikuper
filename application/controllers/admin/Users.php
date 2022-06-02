@@ -7,9 +7,9 @@ class Users extends CI_Controller
     {
         parent::__construct();
         cek_login();
-        // if (!is_admin()) {
-        //     redirect('dashboard');
-        // }
+        if (!is_admin()) {
+            redirect('home');
+        }
         $this->load->library('form_validation');
         $this->load->model('Users_m', 'users');
         date_default_timezone_set('Asia/Jakarta');
@@ -17,9 +17,13 @@ class Users extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "User Management";
-        $data['users'] = $this->users->get(userdata('id_user'));
-        $this->template->load('template', 'users/data', $data);
+        if (userdata('role') == 1) {
+            $data['title'] = "User Management";
+            $data['users'] = $this->users->get(userdata('id_user'));
+            $this->template->load('template', 'users/data', $data);
+        } else {
+            redirect('home');
+        }
     }
 
     private function _validasi($mode)

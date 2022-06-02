@@ -17,47 +17,63 @@ class Tentang extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Tentang Kami";
-        $data['tentang'] = $this->tentang->get();
-        $this->template->load('template', 'tentang/data', $data);
+        if (userdata('role') == 1) {
+            $data['title'] = "Tentang Kami";
+            $data['tentang'] = $this->tentang->get();
+            $this->template->load('template', 'tentang/data', $data);
+        } else {
+            redirect('home');
+        }
     }
 
     public function add()
     {
-        $tentang = new stdClass();
-        $tentang->id_tentangKami = null;
-        $tentang->tentang_kami = null;
-        $data = array(
-            'title' => 'Tambah Data tentang',
-            'page' => 'add',
-            'row' => $tentang
-        );
-        $this->template->load('template', 'tentang/form', $data);
+        if (userdata('role') == 1) {
+            $tentang = new stdClass();
+            $tentang->id_tentangKami = null;
+            $tentang->tentang_kami = null;
+            $data = array(
+                'title' => 'Tambah Data tentang',
+                'page' => 'add',
+                'row' => $tentang
+            );
+            $this->template->load('template', 'tentang/form', $data);
+        } else {
+            redirect('home');
+        }
     }
 
     public function edit($id_tentangKami)
     {
-        $tentang = $this->tentang->get($id_tentangKami)->row();
-        $data = array(
-            'title' => 'Edit Data tentang',
-            'page' => 'edit',
-            'row' => $tentang
-        );
-        $this->template->load('template', 'tentang/form', $data);
+        if (userdata('role') == 1) {
+            $tentang = $this->tentang->get($id_tentangKami)->row();
+            $data = array(
+                'title' => 'Edit Data tentang',
+                'page' => 'edit',
+                'row' => $tentang
+            );
+            $this->template->load('template', 'tentang/form', $data);
+        } else {
+            redirect('home');
+        }
     }
 
     public function del($id_tentangKami)
     {
-        $where=array('id_tentangKami' => $id_tentangKami);
-		$this->base_model->del('tbl_tentang_kami', $where);
-		redirect('admin/tentang');
+        if (userdata('role') == 1) {
+            $where = array('id_tentangKami' => $id_tentangKami);
+            $this->base_model->del('tbl_tentang_kami', $where);
+            redirect('admin/tentang');
+        } else {
+            redirect('home');
+        }
     }
 
     public function proses()
     {
         // $tanggal = date("Y-m-d");
         // $login = userdata('id_user');
-        $post = $this->input->post(null , TRUE);
+        $post = $this->input->post(null, TRUE);
         $config['upload_path']          = './assets/uploads/tentang/';
         $config['allowed_types']        = 'jpg|png|jpeg';
         $config['max_size']             = 5000;

@@ -9,7 +9,7 @@
         <form action="" method="post">
             <?= $this->session->flashdata('pesan'); ?>
             <div class="form-group has-feedback">
-                <input type="text" name="username" class="form-control" placeholder="Email">
+                <input type="text" name="username" class="form-control" placeholder="Username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
