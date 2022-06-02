@@ -57,6 +57,7 @@ class Berita_m extends CI_Model
         if ($post['image'] != null) {
             $params['foto_berita'] = $post['image'];
         }
+        $this->db->where('id_berita', $post['id_berita']);
         $this->db->update('tbl_berita', $params);
     }
 

@@ -104,12 +104,12 @@ class Berita extends CI_Controller
             if (@$_FILES['image']['name'] != null) {
                 if ($this->upload->do_upload('image')) {
                     $post['image'] = $this->upload->data('file_name');
-                    // $this->berita->edit($post);
+                    $this->berita->edit($post);
                     if ($this->db->affected_rows() > 0) {
                         set_pesan('succes', 'Data Berhasil Dismpan');
                     }
-                    var_dump($post);
-                    // redirect('admin/berita');
+                    // var_dump($post);
+                    redirect('admin/berita');
                 } else {
                     $error = $this->upload->display_error();
                     echo $error;
