@@ -24,7 +24,7 @@ class DetailPerumahan extends CI_Controller
     public function add()
     {
         $perumahahan = new stdClass();
-        $perumahahan->id_perumahahan = null;
+        $perumahahan->id_perumahan = null;
         $perumahahan->nama_perumahan = null;
         $perumahahan->lokasi = '-- Pilih Lokasi --';
         $perumahahan->ket_perumahan = null;
