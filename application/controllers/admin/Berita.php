@@ -65,6 +65,12 @@ class Berita extends CI_Controller
 
     public function del($id_berita)
     {
+        $post = $this->input->post(null, TRUE);
+        $item = $this->berita->get($post['id_berita'])->row();
+        $target_file = './assets/uploads/berita/' . $item->foto_berita;
+        unlink($target_file);
+
+
         $where = array('id_berita' => $id_berita);
         $this->berita->del('tbl_berita', $where);
         redirect('admin/berita');
@@ -103,6 +109,11 @@ class Berita extends CI_Controller
         if (isset($_POST['edit'])) {
             if (@$_FILES['image']['name'] != null) {
                 if ($this->upload->do_upload('image')) {
+                    $item = $this->berita->get($post['id_berita'])->row();
+                    if ($item->foto_berita != null) {
+                        $target_file = './assets/uploads/berita/' . $item->foto_berita;
+                        unlink($target_file);
+                    }
                     $post['image'] = $this->upload->data('file_name');
                     $this->berita->edit($post);
                     if ($this->db->affected_rows() > 0) {
