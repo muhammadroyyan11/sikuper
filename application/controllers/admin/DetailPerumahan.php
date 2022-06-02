@@ -7,8 +7,8 @@ class DetailPerumahan extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        cek_login();     
-        is_admin();  
+        cek_login();
+        is_admin();
         $this->load->model('detail_m', 'detail');
         $this->load->model('jenisPerumahan_m', 'jenis');
         $this->load->library('form_validation');
@@ -26,7 +26,7 @@ class DetailPerumahan extends CI_Controller
         $perumahahan = new stdClass();
         $perumahahan->id_perumahahan = null;
         $perumahahan->nama_perumahan = null;
-        $perumahahan->lokasi = null;
+        $perumahahan->lokasi = '-- Pilih Lokasi --';
         $perumahahan->ket_perumahan = null;
         $perumahahan->fasilitas = null;
         $perumahahan->alamat = null;
@@ -36,6 +36,8 @@ class DetailPerumahan extends CI_Controller
         $perumahahan->nama_pengembang = null;
         $perumahahan->total_unit_perumahan = null;
         $perumahahan->id_jenis_perumahan = null;
+        $perumahahan->foto_perumahan = null;
+        $perumahahan->nama_jenis = '-- Pilih Jenis Perumahan --';
         $jenis = $this->detail->getJenis();
         $data = array(
             'title' => 'Tambah data perumahan',
@@ -44,6 +46,20 @@ class DetailPerumahan extends CI_Controller
             'row' => $perumahahan
         );
         // $data['detail'] = $this->detail->getJoin();
+        $this->template->load('template', 'detail/form', $data);
+    }
+
+    public function edit($id_perumahan)
+    {
+        $detail = $this->detail->getJoin($id_perumahan)->row();
+        $jenis = $this->detail->getJenis();
+
+        $data = array(
+            'title' => 'Edit data perumahan',
+            'page' => 'edit',
+            'jenis' => $jenis,
+            'row' => $detail
+        );
         $this->template->load('template', 'detail/form', $data);
     }
 
@@ -59,81 +75,49 @@ class DetailPerumahan extends CI_Controller
 
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('userfile')) {
-                // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
-
-                // redirect('campaign/add');
-                $gambar = $this->upload->data();
-                $gambar =  'berita-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-                $nama_perumahan = $this->input->post('nama_perumahan');
-                $lokasi = $this->input->post('lokasi');
-                $ket_perumahan = $this->input->post('ket_perumahan');
-                $fasilitas = $this->input->post('fasilitas');
-                $alamat = $this->input->post('alamat');
-                $luas_tanah = $this->input->post('luas_tanah');
-                $tentang_perumahan = $this->input->post('tentang_perumahan');
-                $ketersediaan = $this->input->post('ketersediaan');
-                $nama_pengembang = $this->input->post('nama_pengembang');
-                $total_unit_perumahan = $this->input->post('total_unit_perumahan');
-                $id_jenis_perumahan = $this->input->post('jenis_perumahan');
-
-
-                $data = array(
-                    'nama_perumahan' => $nama_perumahan,
-                    'lokasi' => $lokasi,
-                    'ket_perumahan' => $ket_perumahan,
-                    'fasilitas' => $fasilitas,
-                    'alamat' => $alamat,
-                    'luas_tanah' => $luas_tanah,
-                    'tentang_perumahan' => $tentang_perumahan,
-                    'ketersediaan' => $ketersediaan,
-                    'nama_pengembang' => $nama_pengembang,
-                    'total_unit_perumahan' => $total_unit_perumahan,
-                    'id_jenis_perumahan' => $id_jenis_perumahan,
-                    'foto_perumahan' => $gambar,
-
-                );
-                var_dump($data);
-                // $this->berita->tambah('tbl_berita', $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
-                // redirect('admin/berita');
-            } else {
-
-                $gambar = $this->upload->data();
-                $gambar =  $gambar['file_name'];
-                $nama_perumahan = $this->input->post('nama_perumahan');
-                $lokasi = $this->input->post('lokasi');
-                $ket_perumahan = $this->input->post('ket_perumahan');
-                $fasilitas = $this->input->post('fasilitas');
-                $alamat = $this->input->post('alamat');
-                $luas_tanah = $this->input->post('luas_tanah');
-                $tentang_perumahan = $this->input->post('tentang_perumahan');
-                $ketersediaan = $this->input->post('ketersediaan');
-                $nama_pengembang = $this->input->post('nama_pengembang');
-                $total_unit_perumahan = $this->input->post('total_unit_perumahan');
-                $id_jenis_perumahan = $this->input->post('jenis_perumahan');
-
-
-                $data = array(
-                    'nama_perumahan' => $nama_perumahan,
-                    'lokasi' => $lokasi,
-                    'ket_perumahan' => $ket_perumahan,
-                    'fasilitas' => $fasilitas,
-                    'alamat' => $alamat,
-                    'luas_tanah' => $luas_tanah,
-                    'tentang_perumahan' => $tentang_perumahan,
-                    'ketersediaan' => $ketersediaan,
-                    'nama_pengembang' => $nama_pengembang,
-                    'total_unit_perumahan' => $total_unit_perumahan,
-                    'id_jenis_perumahan' => $id_jenis_perumahan,
-                    'foto_perumahan' => $gambar,
-
-                );
-                // var_dump($data);
-                $this->detail->tambah('tbl_perumahan', $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
-
-                redirect('admin/detailPerumahan');
+            if (isset($_POST['add'])) {
+                if (@$_FILES['image']['name'] != null) {
+                    if ($this->upload->do_upload('image')) {
+                        $post['image'] = $this->upload->data('file_name');
+                        $this->berita->add($post);
+                        if ($this->db->affected_rows() > 0) {
+                            set_pesan('succes', 'Data Berhasil Dismpan');
+                        }
+                        var_dump($post);
+                        redirect('admin/berita');
+                    } else {
+                        $error = $this->upload->display_error();
+                        echo $error;
+                    }
+                }
+            }
+            if (isset($_POST['edit'])) {
+                if (@$_FILES['image']['name'] != null) {
+                    if ($this->upload->do_upload('image')) {
+                        $item = $this->detail->get($post['id_detail'])->row();
+                        if ($item->foto_detail != null) {
+                            $target_file = './assets/uploads/perumahan/' . $item->foto_detail;
+                            unlink($target_file);
+                        }
+                        $post['image'] = $this->upload->data('file_name');
+                        $this->detail->edit($post);
+                        if ($this->db->affected_rows() > 0) {
+                            set_pesan('succes', 'Data Berhasil Dismpan');
+                        }
+                        // var_dump($post);
+                        redirect('admin/detailPerumahan');
+                    } else {
+                        $error = $this->upload->display_error();
+                        echo $error;
+                    }
+                } else {
+                    $post['image'] = null;
+                    $this->berita->edit($post);
+                    if ($this->db->affected_rows() > 0) {
+                        set_pesan('succes', 'Data Berhasil Dismpan');
+                    }
+                    redirect('admin/berita');
+                }
             }
         }
         if (isset($_POST['edit'])) {
@@ -144,8 +128,8 @@ class DetailPerumahan extends CI_Controller
     public function del($id_perumahan)
     {
 
-        $where=array('id_perumahan' => $id_perumahan);
-		$this->detail->del('tbl_perumahan', $where);
-		redirect('admin/detailPerumahan');
+        $where = array('id_perumahan' => $id_perumahan);
+        $this->detail->del('tbl_perumahan', $where);
+        redirect('admin/detailPerumahan');
     }
 }

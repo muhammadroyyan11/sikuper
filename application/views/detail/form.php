@@ -5,7 +5,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" action="<?= site_url('admin/detailPerumahan/proses')?>" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="<?= site_url('admin/detailPerumahan/proses') ?>" method="post" enctype="multipart/form-data">
         <div class="box-body">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Nama Perumahan</label>
@@ -18,18 +18,25 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Jenis Perumahan</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="featured" name="jenis_perumahan">
-                        <option value="">-- Pilih --</option>
+                        <option value="<?= $row->id_jenis_perumahan ?>"><?= $this->input->post('id_jenis_perumahan') ?? $row->nama_jenis ?></option>
                         <?php foreach ($jenis->result() as $key => $data) { ?>
-                           <option value="<?php echo $data->id_jenis_perumahan ?>"><?php echo $data->nama_jenis ?></option>
+                            <option value="<?php echo $data->id_jenis_perumahan ?>"><?php echo $data->nama_jenis ?></option>
                         <?php } ?>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Lokasi</label>
-
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" name="lokasi" value="<?= $row->lokasi ?>" placeholder="Lokasi">
+                    <select class="form-control" id="lokasi" name="lokasi">
+                        <option value="<?= $row->lokasi ?>"><?= $this->input->post('lokasi') ?? $row->lokasi ?></option>
+                        <option value="Balikpapan Tengah">Balikpapan Tengah</option>
+                        <option value="Balikpapan Timur">Balikpapan Timur</option>
+                        <option value="Balikpapan Utara">Balikpapan Utara</option>
+                        <option value="Balikpapan Barat">Balikpapan Barat</option>
+                        <option value="Balikpapan Selatan">Balikpapan Selatan</option>
+                        <option value="Balikpapan Kota">Balikpapan Kota</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -91,9 +98,25 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Gambar Perumahan</label>
 
-                <div class="col-sm-10">
-                    <input type="file" class="form-control" name="userfile">
-                </div>
+                <!-- <div class="col-sm-10">
+                    <input type="file" class="form-control" name="image">
+                </div> -->
+                <?php
+
+                if ($row->foto_perumahan != null) {
+                    if ($page == 'edit') { ?>
+                        <img src="<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>" alt="" width="50%" style="margin-top: 10px;">
+                    <?php }
+                }
+                if ($page == 'add') { ?>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;" required>
+                    </div>
+                <?php } else { ?>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;">
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <!-- /.box-body -->
