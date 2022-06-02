@@ -84,7 +84,7 @@ class Auth extends CI_Controller
             unset($input['password2']);
             $input['password']      = password_hash($input['password'], PASSWORD_DEFAULT);
             $input['role']          = '2';
-            $input['foto_profil']   = 'user.png';
+            $input['foto_profil']   = 'user.jpg';
 
             $query = $this->base->insert('tbl_user', $input);
             if ($query) {

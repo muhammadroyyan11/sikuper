@@ -34,3 +34,5 @@ class JenisPerumahan_m extends CI_Model
         $this->db->update('tbl_jenis_perumahan', $params);
     }
 }
+
+  

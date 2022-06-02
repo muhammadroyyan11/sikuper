@@ -28,12 +28,32 @@
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
-                
+
                 <!-- /.col -->
             </div>
-            
+
         </form>
-        <a href="<?= site_url('auth/register')?>">Buat Akun Baru</a><br>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                    <label>
+                        <a href="<?= site_url('auth/register') ?>">Buat Akun Baru</a><br>
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <div class="checkbox icheck">
+                    <label>
+                        <a href="<?= site_url('home') ?>">Login Tamu</a><br>
+                    </label>
+                </div>
+            </div>
+
+            <!-- /.col -->
+        </div>
+
+
         <!-- /.social-auth-links -->
 
     </div>

@@ -15,22 +15,31 @@
                     <input type="text" class="form-control" id="inputEmail3" value="<?= $row->judul ?>" name="judul" placeholder="Masukkan Judul Berita">
                 </div>
             </div><br>
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 10px;">
                 <label for="inputPassword3" class="col-sm-2 control-label">Isi Berita</label>
                 <div class="col-sm-10">
                     <textarea id="editor1" name="isi" rows="10" cols="80"><?= $this->input->post('konten') ?? $row->isi ?></textarea>
                 </div>
             </div><br>
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 20px;">
                 <label for="inputEmail3" class="col-sm-2 control-label">Foto Berita</label>
 
                 <div class="col-sm-10">
-                    <?php if ($page == 'edit') { ?>
-                        <img src="<?= base_url() ?>assets/uploads/Berita/<?= $row->foto_berita ?>" alt="" width="50%" style="padding-top: 10px;">
+                    <?php
+
+                    if ($row->foto_berita != null) {
+                        if ($page == 'edit') { ?>
+                            <img src="<?= base_url() ?>assets/uploads/Berita/<?= $row->foto_berita ?>" alt="" width="50%" style="margin-top: 10px;">
+                        <?php }
+                    }
+                    if ($page == 'add') { ?>
+                        <input type="file" class="form-control" name="image" value="<?= $row->foto_berita ?>" style="margin-top: 10px;" required>
+                    <?php } else { ?>
+                        <input type="file" class="form-control" name="image" value="<?= $row->foto_berita ?>" style="margin-top: 10px;">
                     <?php } ?>
-                    <input type="file" class="form-control" name="userfile">
-                    <input type="text" value="<?= $row->tgl_berita ?>" name="tgl_berita" id="">
-                    <p class="help-block"><?= $page == 'edit' ? 'Biarkan kosong jika tidak ada perubahan gambar' : 'Digunakan untuk halaman sampul berita '?></p>
+
+                    <input type="hidden" value="<?= $row->tgl_berita ?>" name="tgl_berita" id="">
+                    <p class="help-block"><?= $page == 'edit' ? 'Biarkan kosong jika tidak ada perubahan gambar' : 'Digunakan untuk halaman sampul berita ' ?></p>
                 </div>
             </div>
         </div>
