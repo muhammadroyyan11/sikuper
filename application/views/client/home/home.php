@@ -7,7 +7,7 @@
                     <b>
                         <h1 class="mb-4">Dinas Perumahan dan <br>Permukiman Kota Balikpapan</h1>
                     </b>
-                    <p><a href="#" class="btn btn-primary py-3 px-4">View all properties</a></p>
+                    <p><a href="<?= site_url('perumahan') ?>" class="btn btn-primary py-3 px-4">Lihat Perumahan</a></p>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 heading-section text-center ftco-animate mb-5">
                 <h2 class="mb-2">Perumahan</h2>
-                <span class="subheading"><a href="#">Lihat semua</a></span>
+                <span class="subheading"><a href="<?= site_url('perumahan') ?>">Lihat semua</a></span>
             </div>
         </div>
         <div class="row ftco-animate">
@@ -99,7 +99,7 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 heading-section text-center ftco-animate">
                 <h2>Berita Terbaru</h2>
-                <span class="subheading"><a href="#">Lihat semua</a></span>
+                <span class="subheading"><a href="<?= site_url('berita') ?>">Lihat semua</a></span>
             </div>
         </div>
         <div class="row d-flex">
