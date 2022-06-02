@@ -20,10 +20,19 @@ class Tentang_m extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_tentang_kami');
         if ($id != null) {
-           $this->db->where('id_berita !=', $id);
+           $this->db->where('id_tentangKami', $id);
         }
         $query = $this->db->get();
         return $query;
+    }
+
+    public function add($post)
+    {
+        $params = [
+            'tentang_kami' => $post['tentang_kami'],
+            'foto' => $post['image']
+        ];
+        $this->db->insert('tbl_tentang_kami', $params);
     }
 
     public function tambah($data)
@@ -44,9 +53,12 @@ class Tentang_m extends CI_Model
 
     public function edit($post)
     {
-        $params['name'] = $post['name_loket'];
-        $params['keterangan'] = $post['keterangan'];
-        $this->db->where('loket_id', $post['loket_id']);
-        $this->db->update('loket', $params);
+        $params = [
+            'tentang_kami' => $post['tentang_kami']
+        ];
+        if ($post['image'] != null) {
+            $params['foto'] = $post['image'];
+        }
+        $this->db->update('tbl_tentang_kami', $params);
     }
 }

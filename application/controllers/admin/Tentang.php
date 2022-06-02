@@ -8,7 +8,7 @@ class Tentang extends CI_Controller
     {
         parent::__construct();
         cek_login();
-        is_admin();  
+        is_admin();
         date_default_timezone_set('Asia/Jakarta');
         // // $this->load->model('Auth_model', 'auth');
         // $this->load->model('Admin_model', 'admin');
@@ -35,59 +35,81 @@ class Tentang extends CI_Controller
         $this->template->load('template', 'tentang/form', $data);
     }
 
+    public function edit($id_tentangKami)
+    {
+        $tentang = $this->tentang->get($id_tentangKami)->row();
+        $data = array(
+            'title' => 'Edit Data tentang',
+            'page' => 'edit',
+            'row' => $tentang
+        );
+        $this->template->load('template', 'tentang/form', $data);
+    }
+
+    public function del($id_tentangKami)
+    {
+        $where=array('id_tentangKami' => $id_tentangKami);
+		$this->base_model->del('tbl_tentang_kami', $where);
+		redirect('admin/tentang');
+    }
+
     public function proses()
     {
         // $tanggal = date("Y-m-d");
         // $login = userdata('id_user');
+        $post = $this->input->post(null , TRUE);
+        $config['upload_path']          = './assets/uploads/tentang/';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 5000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+        $config['file_name']            = 'berita-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+
+        $this->load->library('upload', $config);
+
         if (isset($_POST['add'])) {
-            $config['upload_path']          = './assets/uploads/tentang/';
-            $config['allowed_types']        = 'jpg|png|jpeg';
-            $config['max_size']             = 5000;
-            $config['max_width']            = 10000;
-            $config['max_height']           = 10000;
-            $config['file_name']            = 'berita-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('userfile')) {
-                // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
-
-                // redirect('campaign/add');
-                $gambar = $this->upload->data();
-                $gambar =  'tentang-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-                $tentang = $this->input->post('tentang_kami');
-
-
-                $data = array(
-                    'tentang_kami' => $tentang,
-                    'foto_berita' => $gambar,
-
-                );
-                var_dump($data);
-                // $this->berita->tambah('tbl_berita', $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
-                // redirect('admin/berita');
-            } else {
-
-                $gambar = $this->upload->data();
-                $gambar =  'tentang-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-                $tentang = $this->input->post('tentang_kami');
-
-
-                $data = array(
-                    'tentang_kami' => $tentang,
-                    'foto' => $gambar,
-
-                );
-                // var_dump($data);
-                $this->tentang->tambah($data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
-
-                redirect('admin/tentang');
+            if (@$_FILES['image']['name'] != null) {
+                if ($this->upload->do_upload('image')) {
+                    $post['image'] = $this->upload->data('file_name');
+                    $this->tentang->add($post);
+                    if ($this->db->affected_rows() > 0) {
+                        set_pesan('succes', 'Data Berhasil Dismpan');
+                    }
+                    // var_dump($post);
+                    // redirect('admin/tentang');
+                } else {
+                    $error = $this->upload->display_error();
+                    echo $error;
+                }
             }
         }
         if (isset($_POST['edit'])) {
-            echo 'ok';
+            if (@$_FILES['image']['name'] != null) {
+                if ($this->upload->do_upload('image')) {
+                    $item = $this->tentang->get($post['id_tentangKami'])->row();
+                    if ($item->foto != null) {
+                        $target_file = './assets/uploads/tentang/' . $item->foto;
+                        unlink($target_file);
+                    }
+                    $post['image'] = $this->upload->data('file_name');
+                    $this->tentang->edit($post);
+                    if ($this->db->affected_rows() > 0) {
+                        set_pesan('succes', 'Data Berhasil Dismpan');
+                    }
+                    // var_dump($post);
+                    redirect('admin/tentang');
+                } else {
+                    $error = $this->upload->display_error();
+                    echo $error;
+                }
+            } else {
+                $post['image'] = null;
+                $this->tentang->edit($post);
+                if ($this->db->affected_rows() > 0) {
+                    set_pesan('succes', 'Data Berhasil Dismpan');
+                }
+                redirect('admin/tentang');
+            }
         }
     }
 }

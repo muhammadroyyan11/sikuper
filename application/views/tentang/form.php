@@ -10,16 +10,31 @@
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Tentang Kami</label>
                 <div class="col-sm-10">
+                    <input type="hidden" value="<?= $row->id_tentangKami ?>" name="id_tentangKami">
                     <textarea id="editor1" name="tentang_kami" rows="10" cols="80"><?= $this->input->post('tentang_kami') ?? $row->tentang_kami ?></textarea>
                 </div>
             </div><br>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Foto Halaman Tentang Kami</label>
+                <?php
 
-                <div class="col-sm-10">
-                    <input type="file" class="form-control" name="userfile">
-                    <p class="help-block">Digunakan untuk halaman sampul Tentang Kami</p>
-                </div>
+                if ($page == 'edit') {
+                    if ($row->foto != null) { ?>
+                        <!-- <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image" value="<?= $row->foto ?>" required>
+                        </div> -->
+                        <div class="col-sm-10">
+                            <img src="<?= base_url() ?>assets/uploads/tentang/<?= $row->foto ?>" alt="" width="50%" style="margin-top: 10px;">
+                            <input type="file" class="form-control" name="image" value="<?= $row->foto ?>" style="margin-top: 10px;">
+                            <p class="help-block">Hiraukan form upload jika tidak ada perubahan gambar</p>
+                        </div>
+                    <?php }
+                } else { ?>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="image">
+                        <p class="help-block">Digunakan untuk halaman sampul Tentang Kami</p>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <!-- /.box-body -->
