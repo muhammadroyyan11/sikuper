@@ -1,4 +1,4 @@
-<section class="hero-wrap hero-wrap-2" style="background-image: url('<?= base_url() ?>assets/client/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style="background-image: url(<?= base_url() ?>assets/uploads/bg.jpeg);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -14,8 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 order-md-last d-flex align-items-stretch">
-                <!-- <div class="img w-100 img-2 mr-md-2" style="background-image: url(<?= base_url() ?>assets/client/images/about.jpg);"></div> -->
-                <div class="img w-100 img-2 ml-md-2"><img src="<?= base_url() ?>assets/uploads/tentang/ <?= $tentang->foto ?>" alt=""></div>
+                <div class="img w-100 img-2 mr-md-2" style="background-image: url(<?= base_url() ?>assets/uploads/tentang/<?= $tentang->foto ?>);"></div>
             </div>
             <div class="col-md-5 wrap-about py-md-5 ftco-animate">
                 <div class="heading-section pr-md-5">
