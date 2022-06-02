@@ -104,21 +104,19 @@
                 </div> -->
                 <?php
 
-                if ($page == 'add') {
+                if ($page == 'edit') {
                     if ($row->foto_perumahan != null) { ?>
-                        <div class="col-sm-10">
+                        <!-- <div class="col-sm-10">
                             <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" required>
-                        </div>
-                    <?php } else if ($page == 'edit') { ?>
+                        </div> -->
                         <div class="col-sm-10">
                             <img src="<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>" alt="" width="50%" style="margin-top: 10px;">
                             <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;">
                         </div>
                     <?php }
-                } else if ($page == 'edit') { ?>
+                } else { ?>
                     <div class="col-sm-10">
-                        <img src="<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>" alt="" width="50%" style="margin-top: 10px;">
-                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" style="margin-top: 10px;">
+                        <input type="file" class="form-control" name="image" value="<?= $row->foto_perumahan ?>" required>
                     </div>
                 <?php } ?>
             </div>
