@@ -17,6 +17,10 @@
                 <h2 class="mb-2">Perumahan</h2>
             </div>
         </div>
+        <div class="form-inline">
+            <span class="mr-md-auto"> </span>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"><span class="bi bi-filter"></span> Filter</button>
+        </div>
         <div class="row">
             <?php foreach ($perumahan as $key => $data) { ?>
                 <div class="col-md-4">
@@ -83,3 +87,36 @@
         </div> -->
     </div>
 </section>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Filter Perumahan</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">filter</button>
+            </div>
+        </div>
+    </div>
+</div>
