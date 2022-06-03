@@ -2,7 +2,7 @@
     <div class="box-header">
         <h3 class="box-title"><?= $title ?></h3>
         <div class="pull-right">
-            <!-- <a href="<?= site_url('admin/tentang/add')?>" class="btn btn-primary btn-flat">
+            <!-- <a href="<?= site_url('admin/tentang/add') ?>" class="btn btn-primary btn-flat">
                 <i class="fa fa-user-plus"></i> Tambah
             </a> -->
             <!-- <button class="btn btn-primary btn-flat"><i class="fa fa-user-plus"></i> Tambah</button> -->
@@ -27,16 +27,11 @@
                         <td style="width:10%;"><?= $no++ ?>.</td>
                         <td><?= $data->tentang_kami ?></td>
                         <td class="text-center" width="160px">
-                            <form action="<?= site_url('admin/tentang/del') ?>" method="post">
-                                <a href="<?= site_url('admin/tentang/edit/' . $data->id_tentangKami) ?>" class="btn btn-warning btn-xs">
-                                    <i class="fa fa-pencil"></i> Edit
-                                </a>
-                                <input type="hidden" name="id_tentangKami" value="<?= $data->id_tentangKami ?>">
+                            <a href="<?= site_url('admin/tentang/edit/' . $data->id_tentangKami) ?>" class="btn btn-warning btn-xs">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>
+                            <input type="hidden" name="id_tentangKami" value="<?= $data->id_tentangKami ?>">
 
-                                <a href="<?= site_url('admin/tentang/del/' . $data->id_tentangKami) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Yakin ?')">
-                                    <i class="fa fa-trash"></i> Hapus
-                                </a>
-                            </form>
                         </td>
                     </tr>
                 <?php } ?>

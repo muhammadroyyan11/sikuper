@@ -16,8 +16,35 @@ class Perumahan extends CI_Controller
 
 	public function index()
 	{
-		// $data['galleries'] = $this->restapi->Apiget('https://admin.kofluckroastery.com/api/v1/galleries');
-		$data['perumahan'] = $this->detail->getJoin();
+		$config['base_url'] = base_url().'perumahan/index/';
+		$config['total_rows'] = $this->db->count_all('tbl_perumahan');
+		$config['per_page'] = 9;
+		$from = $this->uri->segment(3);
+		$choise = $config["total_rows"] / $config['per_page'];
+		$config["num_links"] = floor($choise);
+
+		// $config['attributes'] = array('class' => '');
+		$config['first_link'] = 'First';
+		$config['last_link'] = 'Last';
+		$config['next_link'] = 'Next';
+		$config['prev_link'] = 'Prev';
+
+		$config['full_tag_open'] = '<div class="block-27"><ul>';
+		$config['full_tag_close'] = '</ul></div>';
+
+		$config['num_tag_open'] = '<li><span>';
+		$config['num_tag_close'] = '</span></li>';
+
+		$config['cur_tag_open'] = '<li class="active"><span>';
+		$config['cur_tag_close'] = '</span></li>';
+
+		$this->pagination->initialize($config);		
+
+		//CALL DATA
+		$data['page'] = ($from) ? $from : 0;
+		$data['perumahan'] = $this->detail->get_data($config['per_page'],$from)->result();
+
+		// $data['perumahan'] = $this->detail->getJoin();
 		$data['title'] = 'PERUMAHAN';
 		$this->template->load('client/template', 'client/perumahan/perumahan', $data);
 	}

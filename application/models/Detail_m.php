@@ -52,6 +52,14 @@ class Detail_m extends CI_Model
         return $this->db->get();
     }
 
+    public function get_data($limit, $start)
+    {
+        $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
+        $this->db->order_by('id_perumahan', 'desc');
+        $query = $this->db->get('tbl_perumahan', $limit, $start);
+        return $query;
+    }
+
     public function add($post)
     {
         $params = [

@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="row">
-            <?php foreach ($perumahan->result() as $key => $data) { ?>
+            <?php foreach ($perumahan as $key => $data) { ?>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="<?= site_url('perumahan/read/' . $data->id_perumahan)?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
+                        <a href="<?= site_url('perumahan/read/' . $data->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
                         </a>
                         <div class="text">
                             <ul class="property_list">
@@ -47,20 +47,39 @@
                 </div>
             <?php } ?>
         </div>
-        <div class="row mt-5">
+
+        <!-- <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
                         <li class="active"><span>1</span></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
                     </ul>
                 </div>
             </div>
+        </div> -->
+
+        <div class="row mt-5">
+            <div class="col text-center">
+                <?= $this->pagination->create_links(); ?>
+            </div>
         </div>
+
+        <!-- <div class="row mt-5">
+            <div class="col text-center">
+                
+            </div>
+        </div> -->
+
+        <!-- <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <a href="#" class="active"><span>1</span></a>
+                </div>
+            </div>
+        </div> -->
     </div>
 </section>

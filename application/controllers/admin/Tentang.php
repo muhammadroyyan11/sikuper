@@ -92,7 +92,7 @@ class Tentang extends CI_Controller
                         set_pesan('succes', 'Data Berhasil Dismpan');
                     }
                     // var_dump($post);
-                    // redirect('admin/tentang');
+                    redirect('admin/tentang');
                 } else {
                     $error = $this->upload->display_error();
                     echo $error;

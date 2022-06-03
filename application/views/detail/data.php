@@ -35,13 +35,13 @@
                     <tr>
                         <td style="width:10%;"><?= $no++ ?>.</td>
                         <td><?= $data->nama_perumahan ?></td>
-                        <td><?= $data->nama_jenis ?></td>
+                        <td><?= character_limiter($data->nama_jenis, 5) ?></td>
                         <td><?= $data->lokasi ?></td>
                         <!-- <td><?= character_limiter($data->ket_perumahan, 100) ?></td> -->
                         <td><?= $data->fasilitas ?></td>
                         <td><?= $data->alamat ?></td>
                         <td><?= $data->luas_tanah ?></td>
-                        <td><?= character_limiter($data->tentang_perumahan , 100) ?></td>
+                        <td><?= character_limiter($data->tentang_perumahan , 5) ?></td>
                         <td><?= $data->ketersediaan ?></td>
                         <td><?= $data->nama_pengembang ?></td>
                         <td><?= $data->total_unit_perumahan ?></td>

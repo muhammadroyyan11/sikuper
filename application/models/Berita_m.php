@@ -35,6 +35,13 @@ class Berita_m extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function get_data($limit, $start)
+    {
+        $this->db->order_by('id_berita', 'desc');
+        $query = $this->db->get('tbl_berita', $limit, $start);
+        return $query;
+    }
+
     public function add($post)
     {
         $params = [

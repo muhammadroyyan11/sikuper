@@ -119,8 +119,8 @@
             </div>
             <div class="col-md-5 wrap-about py-md-5 ftco-animate">
                 <div class="heading-section pr-md-5">
-                    <h1 class="mb-4"><b>Keterangan Perumahan</b></h1>
-                    <h3><?= $row->nama_perumahan ?></h3>
+                    <h3><b>Keterangan Perumahan</b></h3>
+                    <h4><?= $row->nama_perumahan ?></h4>
                     <?= $row->ket_perumahan ?>
                 </div>
             </div>

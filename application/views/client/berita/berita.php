@@ -22,7 +22,7 @@
                 $dateMasuk = new DateTime($data->tgl_berita); ?>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="<?= site_url('berita/read/' . $data->id_berita)?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/Berita/<?= $data->foto_berita ?>);">
+                        <a href="<?= site_url('berita/read/' . $data->id_berita) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/Berita/<?= $data->foto_berita ?>);">
                         </a>
                         <div class="text">
                             <h3><a href="#"><?= $data->judul ?></a></h3>
@@ -42,17 +42,7 @@
         </div>
         <div class="row mt-5">
             <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
-                </div>
+                <?= $this->pagination->create_links(); ?>
             </div>
         </div>
     </div>
