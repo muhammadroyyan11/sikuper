@@ -132,6 +132,8 @@
     <script src="<?= base_url() ?>assets/client/js/google-map.js"></script>
     <script src="<?= base_url() ?>assets/client/js/main.js"></script>
 
+    <script src="<?= base_url() ?>assets/client/js/search.js"></script>
+
     <?php if (is_user()) { ?>
         <!--Start of Tawk.to Script-->
         <script type="text/javascript">

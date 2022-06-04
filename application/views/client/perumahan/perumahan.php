@@ -17,31 +17,41 @@
                 <h2 class="mb-2">Perumahan</h2>
             </div>
         </div>
+
         <div class="form-inline">
             <span class="mr-md-auto"> </span>
+            <div class="input-group rounded">
+                <input type="search" class="form-control myInput" id="myInput" onkeyup="myFunction()" placeholder="Search Jenis Perumahan" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="bi bi-search"></i>
+                </span>
+            </div>
+            &nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"><span class="bi bi-filter"></span> Filter</button>
         </div><br>
-        <div class="row filter_data">
-            <?php
-            foreach ($perumahan->result() as $key => $row) { ?>
-                <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
-                        <a href="<?= site_url("perumahan/read/" . $row->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>);">
-                        </a>
-                        <div class="text">
-                            <h3><a href="#"><?= $row->nama_perumahan ?></a></h3>
-                            <span class="location"><?= $row->nama_jenis ?></span>
-                            <span class="location"><?= $row->fasilitas  ?></span>
-                            <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-                                <span class="fa fa-link"></span>
+        <div class="container" id="card-lists">
+            <div class="row filter_data">
+                <?php
+                foreach ($perumahan->result() as $key => $row) { ?>
+                    <div class="col-md-4">
+                        <div class="property-wrap ftco-animate card-body">
+                            <a href="<?= site_url("perumahan/read/" . $row->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>);">
                             </a>
-                            <hr>
-                            <span class="location"><?= $row->lokasi  ?></span>
-                            <span class="text-right"></span>
+                            <div class="text">
+                                <h3><a href="#"><?= $row->nama_perumahan ?></a></h3>
+                                <span class="location"><?= $row->nama_jenis ?></span>
+                                <span class="location"><?= $row->fasilitas  ?></span>
+                                <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+                                    <span class="fa fa-link"></span>
+                                </a>
+                                <hr>
+                                <span class="location"><?= $row->lokasi  ?></span>
+                                <span class="text-right"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
         <div class="row mt-5">
             <div class="col text-center pagination_link">
