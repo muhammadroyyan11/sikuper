@@ -68,20 +68,6 @@ class User extends CI_Controller
             //     echo "<script>alert('Data Berhasil Di Simpan');</script>";
             // }
             // echo "<script>window.location='" . site_url('user') . "';</script>";
-            $input = $this->input->post(null, true);
-            unset($input['password2']);
-            $input['password']      = password_hash($input['password'], PASSWORD_DEFAULT);
-            // $input['role']          = '2';
-            // $input['foto_profil']   = 'user.jpg';
-
-            $query = $this->base->insert('tbl_user', $input);
-            if ($query) {
-                set_pesan('daftar berhasil. Silahkan Login.');
-                redirect('auth');
-            } else {
-                set_pesan('gagal menyimpan ke database', false);
-                redirect('register');
-            }
         }
     }
 
