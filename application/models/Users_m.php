@@ -57,8 +57,9 @@ class Users_m extends CI_Model
         $this->db->update('tbl_user', $params);
     }
 
-    public function getEdit($table)
+    public function getEdit($table, $where)
     {
+        $this->db->where($where);
         $sql = $this->db->get($table);
         return $sql;
     }

@@ -31,10 +31,11 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         // $this->form_validation->set_rules('no_telp', 'Nomor Telepon', 'required|trim');
         $this->form_validation->set_rules('role', 'Role', 'required|trim');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[tbl_user.username]|alpha_numeric');
 
         if ($mode == 'add') {
-            $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]|alpha_numeric');
-            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]');
+            // $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[tbl_user.username]|alpha_numeric');
+            // $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]');
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]|trim');
             $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]|trim');
         } else {
