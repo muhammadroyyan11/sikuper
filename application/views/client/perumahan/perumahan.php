@@ -51,40 +51,11 @@
                 </div>
             <?php } ?>
         </div>
-
-        <!-- <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-
         <div class="row mt-5">
             <div class="col text-center">
                 <?= $this->pagination->create_links(); ?>
             </div>
         </div>
-
-        <!-- <div class="row mt-5">
-            <div class="col text-center">
-                
-            </div>
-        </div> -->
-
-        <!-- <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <a href="#" class="active"><span>1</span></a>
-                </div>
-            </div>
-        </div> -->
     </div>
 </section>
 
@@ -98,21 +69,46 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
+            <form action="" method="GET">
+                <div class="modal-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Balikpapan Kota
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="baltim">
+                        <label class="form-check-label" for="baltim">
+                            Balikpapan Timur
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="balbar">
+                        <label class="form-check-label" for="balbar">
+                            Balikpapan Barat
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="balteng">
+                        <label class="form-check-label" for="balteng">
+                            Balikpapan Tengah
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="balsel">
+                        <label class="form-check-label" for="balsel">
+                            Balikpapan Selatan
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="balut">
+                        <label class="form-check-label" for="balut">
+                            Balikpapan Utara
+                        </label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Checked checkbox
-                    </label>
-                </div>
-            </div>
-
+            </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">filter</button>
