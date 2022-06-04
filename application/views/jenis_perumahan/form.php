@@ -5,7 +5,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form action="<?= site_url('admin/jenisPerumahan/proses') ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= site_url('admin/jenisPerumahan/edit2') ?>" method="post" enctype="multipart/form-data">
         <div class="box-body">
             <div class="form-group">
                 <input type="hidden" value="<?= $row->id_jenis_perumahan ?>" name="id_jenis_perumahan" class="form-control">

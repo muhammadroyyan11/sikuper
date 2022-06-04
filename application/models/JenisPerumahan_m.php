@@ -17,7 +17,7 @@ class JenisPerumahan_m extends CI_Model
     public function add($post)
     {
         $params = [
-            'nama_jenis' => $post['nama_jenis_perumahan'],
+            'nama_jenis' => $post['nama_jenis'],
         ];
         $this->db->insert('tbl_jenis_perumahan', $params);
     }

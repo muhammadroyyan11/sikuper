@@ -32,7 +32,7 @@ class JenisPerumahan extends CI_Controller
         $this->template->load('template', 'jenis_perumahan/form', $data);
     }
 
-    public function edit2($id_jenis_perumahan)
+    public function edit2()
     {
         $post = $this->input->post(null, TRUE);
         // $id_jeniss_perumahan = $post['id_jenis_perumahan'];
@@ -41,6 +41,7 @@ class JenisPerumahan extends CI_Controller
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');
         }
+        redirect('admin/jenisPerumahan');
     }
 
     public function proses()
