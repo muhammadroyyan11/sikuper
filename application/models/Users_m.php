@@ -35,15 +35,14 @@ class Users_m extends CI_Model
     //     $this->db->insert('tbl_jenis_perumahan', $params);
     // }
 
-    public function add($table, $data)
+    public function insert($table, $data, $batch = false)
     {
-        $this->db->insert($table, $data);
+        return $batch ? $this->db->insert_batch($table, $data) : $this->db->insert($table, $data);
     }
 
-    public function del($id)
+    public function delete($table, $pk, $id)
     {
-        $this->db->where('id_jenis_perumahan', $id);
-        $this->db->delete('tbl_jenis_perumahan');
+        return $this->db->delete($table, [$pk => $id]);
     }
 
     public function edit($post)
@@ -56,5 +55,17 @@ class Users_m extends CI_Model
         $params['alamat'] = $post['alamat'] != "" ? $post['alamat'] : null;
         $this->db->where('id_user', $post['id_user']);
         $this->db->update('tbl_user', $params);
+    }
+
+    public function getEdit($table)
+    {
+        $sql = $this->db->get($table);
+        return $sql;
+    }
+
+    public function update($table, $pk, $id, $data)
+    {
+        $this->db->where($pk, $id);
+        return $this->db->update($table, $data);
     }
 }

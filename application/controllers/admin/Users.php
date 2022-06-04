@@ -38,15 +38,15 @@ class Users extends CI_Controller
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]|trim');
             $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]|trim');
         } else {
-            $db = $this->users->get('user', ['id_user' => $this->input->post('id_user', true)]);
+            $db = $this->users->getEdit('tbl_user', ['id_user' => $this->input->post('id_user', true)]);
             $username = $this->input->post('username', true);
             $email = $this->input->post('email', true);
 
-            $uniq_username = $db['username'] == $username ? '' : '|is_unique[user.username]';
-            $uniq_email = $db['email'] == $email ? '' : '|is_unique[user.email]';
+            // $uniq_username = $db['username'] == $username ? '' : '|is_unique[tbl_user.username]';
+            // $uniq_email = $db['email'] == $email ? '' : '|is_unique[user.email]';
 
-            $this->form_validation->set_rules('username', 'Username', 'required|trim|alpha_numeric' . $uniq_username);
-            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $uniq_email);
+            // $this->form_validation->set_rules('username', 'Username', 'required|trim|alpha_numeric' . $uniq_username);
+            // $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $uniq_email);
         }
     }
 
@@ -56,7 +56,7 @@ class Users extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Tambah User";
-            $this->template->load('template', 'user/add', $data);
+            $this->template->load('template', 'users/add', $data);
         } else {
             $input = $this->input->post(null, true);
             $input_data = [
@@ -71,52 +71,49 @@ class Users extends CI_Controller
 
             if ($this->users->add('users', $input_data)) {
                 set_pesan('data berhasil disimpan.');
-                redirect('user');
+                redirect('admin/users');
             } else {
                 set_pesan('data gagal disimpan', false);
-                redirect('user/add');
+                redirect('users/add');
             }
         }
     }
 
     public function edit($getId)
     {
-        $id = encode_php_tags($getId);
+        // $id = encode_php_tags($getId);
         $this->_validasi('edit');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Edit User";
-            $data['user'] = $this->users->get('user', ['id_user' => $id]);
-            $this->template->load('template', 'user/edit', $data);
+            $data['row'] = $this->users->getEdit('tbl_user', ['id_user' => $getId])->row();
+            $this->template->load('template', 'users/edit', $data);
         } else {
             $input = $this->input->post(null, true);
             $input_data = [
                 'nama'          => $input['nama'],
                 'username'      => $input['username'],
-                'email'         => $input['email'],
-                'no_telp'       => $input['no_telp'],
-                'role'          => $input['role']
+                'alamat'       => $input['alamat']
             ];
 
-            if ($this->users->update('user', 'id_user', $id, $input_data)) {
+            if ($this->users->update('tbl_user', 'id_user', $getId, $input_data)) {
                 set_pesan('data berhasil diubah.');
-                redirect('user');
+                redirect('admin/user');
             } else {
                 set_pesan('data gagal diubah.', false);
-                redirect('user/edit/' . $id);
+                redirect('user/edit/' . $getId);
             }
         }
     }
 
-    public function delete($getId)
+    public function del($id)
     {
-        // $id = encode_php_tags($getId);
-        if ($this->users->delete('user', 'id_user', $getId)) {
+        if ($this->users->delete('tbl_user', 'id_user', $id)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('user');
+        redirect('admin/users');
     }
 
     public function toggle($getId)
