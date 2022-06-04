@@ -20,40 +20,32 @@
         <div class="form-inline">
             <span class="mr-md-auto"> </span>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"><span class="bi bi-filter"></span> Filter</button>
-        </div>
-        <div class="row">
-            <?php foreach ($perumahan as $key => $data) { ?>
+        </div><br>
+        <div class="row filter_data">
+            <?php
+            foreach ($perumahan->result() as $key => $row) { ?>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="<?= site_url('perumahan/read/' . $data->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
+                        <a href="<?= site_url("perumahan/read/" . $row->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>);">
                         </a>
                         <div class="text">
-                            <ul class="property_list">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-                            </ul>
-                            <h3><a href="#"><?= $data->nama_perumahan ?></a></h3>
-                            <span class="location"><?= $data->nama_jenis ?></span>
-                            <span class="location"><?= $data->fasilitas  ?></span>
+                            <h3><a href="#"><?= $row->nama_perumahan ?></a></h3>
+                            <span class="location"><?= $row->nama_jenis ?></span>
+                            <span class="location"><?= $row->fasilitas  ?></span>
                             <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="fa fa-link"></span>
                             </a>
-                            <div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
-                                </div>
-                                <span class="text-right">2 weeks ago</span>
-                            </div>
+                            <hr>
+                            <span class="location"><?= $row->lokasi  ?></span>
+                            <span class="text-right"></span>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
         <div class="row mt-5">
-            <div class="col text-center">
-                <?= $this->pagination->create_links(); ?>
+            <div class="col text-center pagination_link">
+
             </div>
         </div>
     </div>
@@ -69,50 +61,33 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="GET">
+            <form action="<?= site_url('perumahan/filter') ?>" method="GET">
                 <div class="modal-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Balikpapan Kota
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" value="" id="baltim">
-                        <label class="form-check-label" for="baltim">
-                            Balikpapan Timur
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" value="" id="balbar">
-                        <label class="form-check-label" for="balbar">
-                            Balikpapan Barat
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" value="" id="balteng">
-                        <label class="form-check-label" for="balteng">
-                            Balikpapan Tengah
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" value="" id="balsel">
-                        <label class="form-check-label" for="balsel">
-                            Balikpapan Selatan
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="" value="" id="balut">
-                        <label class="form-check-label" for="balut">
-                            Balikpapan Utara
-                        </label>
-                    </div>
+                    <!-- <label>Jenis Perumahan :</label>
+                    <?php foreach ($jenis->result_array() as $key => $data) { ?>
+                        <div class="list-group-item checkbox">
+                            <label><input type="checkbox" name="id_jenis_perumahan" class="common_selector lokasi" value="<?php echo $data['nama_jenis']; ?>"> <?php echo $data['nama_jenis']; ?></label>
+                           
+                        </div>
+                    <?php } ?>
+                    <hr> -->
+                    <label>Lokasi :</label>
+                    <?php foreach ($lokasi->result_array() as $key => $data) { ?>
+                        <div class="list-group-item checkbox">
+                            <label><input type="radio" name="lokasi" class="common_selector lokasi" value="<?php echo $data['lokasi']; ?>"> <?php echo $data['lokasi']; ?></label>
+                            <!-- <select name="lokasi[]" form="carform">
+                                <option value="<?php echo $data['lokasi']; ?>"><?php echo $data['lokasi']; ?></option>
+                            </select> -->
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <button type="submit" class="btn btn-secondary">filter</button>
                 </div>
             </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">filter</button>
-            </div>
         </div>
     </div>
 </div>
+</style>

@@ -16,7 +16,7 @@ class Perumahan extends CI_Controller
 
 	public function index()
 	{
-		$config['base_url'] = base_url().'perumahan/index/';
+		$config['base_url'] = base_url() . 'perumahan/index/';
 		$config['total_rows'] = $this->db->count_all('tbl_perumahan');
 		$config['per_page'] = 9;
 		$from = $this->uri->segment(3);
@@ -38,15 +38,74 @@ class Perumahan extends CI_Controller
 		$config['cur_tag_open'] = '<li class="active"><span>';
 		$config['cur_tag_close'] = '</span></li>';
 
-		$this->pagination->initialize($config);		
+		$this->pagination->initialize($config);
 
 		//CALL DATA
 		$data['page'] = ($from) ? $from : 0;
-		$data['perumahan'] = $this->detail->get_data($config['per_page'],$from)->result();
+		$data['perumahan'] = $this->detail->get_data($config['per_page'], $from);
+
+		$data['lokasi'] = $this->detail->fetch_filter_type('lokasi');
+		$data['jenis'] = $this->detail->fetch_filter_type2('nama_jenis');
 
 		// $data['perumahan'] = $this->detail->getJoin();
 		$data['title'] = 'PERUMAHAN';
 		$this->template->load('client/template', 'client/perumahan/perumahan', $data);
+	}
+
+	public function fetch_data()
+	{
+		$lokasi = $this->input->post('lokasi');
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = base_url() . 'perumahan/index/';
+		$config['total_rows'] = $this->product_filter_model->count_all($lokasi);
+		$config['per_page'] = 8;
+		$config['uri_segment'] = 3;
+		$config['use_page_numbers'] = TRUE;
+		$config['full_tag_open'] = '<div class="block-27"><ul>';
+		$config['full_tag_close'] = '</ul></div>';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = '&gt;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_link'] = '&lt;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><span>';
+		$config['cur_tag_close'] = '</span></li>';
+		$config['num_tag_open'] = '</span></li>';
+		$config['num_tag_close'] = '</li>';
+		$config['num_links'] = 3;
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(3);
+		$start = ($page - 1) * $config['per_page'];
+		$output = array(
+			'pagination_link'  => $this->pagination->create_links(),
+			'product_list'   => $this->product_filter_model->fetch_data($config["per_page"], $start, $lokasi)
+		);
+		echo json_encode($output);
+	}
+
+
+
+	public function filter()
+	{
+		$lokasi = $this->input->get(null, TRUE);
+		$jenis = $this->input->get(null, TRUE);
+		// $tes = $this->input->get('balkot');
+		$data['title'] = 'PERUMAHAN';
+		// $data['perumahan'] = $this->detail->getFilter($get)->result();
+
+		// $query = $this->detail->make_query($lokasi);
+        $data['perumahan'] = $this->detail->getFilter($lokasi, $jenis);
+		$data['lokasi'] = $this->detail->fetch_filter_type('lokasi');
+		$data['jenis'] = $this->detail->fetch_filter_type2('nama_jenis');
+		// var_dump($data);
+		$this->template->load('client/template', 'client/perumahan/perumahan', $data);
+		// echo $tes;
 	}
 
 	public function detail($id_perumahan)

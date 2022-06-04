@@ -18,7 +18,8 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
 
 </head>
 
@@ -65,14 +66,14 @@
                         <p align="justify"><b>SIKUPER atau Sistem Informasi Kumpulan Perumahan</b> merupakan sebuah website yang membantu masyarakat dalam mencari perumahan serta memudahkan masyarakat untuk melakukan konsultasi secara online</p><br>
                         <p>Phone : 0542-874091</p>
                         <p>Email : disperkim.balikpapan@gmail.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="ftco-footer-widget mb-4 ml-md-4">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                        <li><a href="<?= site_url('home') ?>"><span class="fa fa-chevron-right mr-2"></span>Beranda</a></li>
+                            <li><a href="<?= site_url('home') ?>"><span class="fa fa-chevron-right mr-2"></span>Beranda</a></li>
                             <li><a href="<?= site_url('tentang') ?>"><span class="fa fa-chevron-right mr-2"></span>Tentang Kami</a></li>
                             <li><a href="<?= site_url('perumahan') ?>"><span class="fa fa-chevron-right mr-2"></span>Perumahan</a></li>
                             <li><a href="<?= site_url('berita') ?>"><span class="fa fa-chevron-right mr-2"></span>Berita</a></li>
