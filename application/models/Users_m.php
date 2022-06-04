@@ -48,9 +48,13 @@ class Users_m extends CI_Model
 
     public function edit($post)
     {
-        $params['name'] = $post['name_loket'];
-        $params['keterangan'] = $post['keterangan'];
-        $this->db->where('loket_id', $post['loket_id']);
-        $this->db->update('loket', $params);
+        $params['nama'] = $post['nama'];
+        $params['username'] = $post['username'];
+        if (!empty($post['password'])) {
+            $params['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
+        }
+        $params['alamat'] = $post['alamat'] != "" ? $post['alamat'] : null;
+        $this->db->where('id_user', $post['id_user']);
+        $this->db->update('tbl_user', $params);
     }
 }

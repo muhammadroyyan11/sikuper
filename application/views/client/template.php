@@ -42,7 +42,7 @@
                     <li <?= $this->uri->segment(1) == 'kontak' ? 'class="nav-item active"' : 'class="nav-item"' ?>><a href="<?= site_url('kontak') ?>" class="nav-link">Kontak</a></li>
                     <?php
                     if ($this->session->has_userdata('login_session')) { ?>
-                        <li class="nav-item pull-right"><a href="<?= site_url('auth/logout') ?>" class="nav-link"><?= userdata('nama') ?> <i class="fa fa-user-circle-o"></i></a></li>
+                        <li class="nav-item pull-right"><a href="<?= site_url('user') ?>" class="nav-link"><?= userdata('nama') ?> <i class="fa fa-user-circle-o"></i></a></li>
                     <?php } else { ?>
                         <li class="nav-item pull-right"><a href="<?= site_url('auth') ?>" class="nav-link">Login</a></li>
                     <?php }
