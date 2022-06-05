@@ -17,7 +17,7 @@ class DetailPerumahan extends CI_Controller
     public function index()
     {
         if (userdata('role') == 1) {
-            $data['title'] = 'Data Detail Perumahan';
+            $data['title'] = 'Data Perumahan';
             $data['detail'] = $this->detail->getJoin();
             $this->template->load('template', 'detail/data', $data);
         } else {
@@ -37,7 +37,7 @@ class DetailPerumahan extends CI_Controller
             $perumahahan->alamat = null;
             $perumahahan->luas_tanah = null;
             $perumahahan->tentang_perumahan = null;
-            $perumahahan->ketersediaan = null;
+            $perumahahan->ketersediaan = '-- Pilih Ketersediaan --';
             $perumahahan->nama_pengembang = null;
             $perumahahan->total_unit_perumahan = null;
             $perumahahan->id_jenis_perumahan = null;
@@ -64,7 +64,7 @@ class DetailPerumahan extends CI_Controller
             $jenis = $this->detail->getJenis();
 
             $data = array(
-                'title' => 'Edit data perumahan',
+                'title' => 'Edit Perumahan',
                 'page' => 'edit',
                 'jenis' => $jenis,
                 'row' => $detail

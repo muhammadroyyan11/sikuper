@@ -46,6 +46,7 @@
         <!-- /.box-body -->
         <div class="box-footer">
             <button type="submit" name="<?= $page ?>" class="btn btn-info pull-right">Selesai</button>
+            <a class="btn btn-primary pull-right" href="<?= site_url('admin/berita')?>" role="button">Batal</a>
         </div>
         <!-- /.box-footer -->
     </form>

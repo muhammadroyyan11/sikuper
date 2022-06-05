@@ -15,7 +15,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Jenis Perumahan</th>
+                    <th>isi tentang kami</th>
                     <th>Aksi(s)</th>
                 </tr>
             </thead>

@@ -1,7 +1,7 @@
 <!-- Horizontal Form -->
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Horizontal Form</h3>
+        <h3 class="box-title"><?= $title ?></h3>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
@@ -77,23 +77,26 @@
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Ketersediaan</label>
-
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" name="ketersediaan" value="<?= $row->ketersediaan ?>" placeholder="ketersediaan">
+                    <select class="form-control" id="ketersediaan" name="ketersediaan">
+                        <option value="<?= $row->ketersediaan ?>"><?= $this->input->post('ketersediaan') ?? $row->ketersediaan ?></option>
+                        <option value="Tersedia">Tersedia</option>
+                        <option value="Tidak Tersedia">Tidak Tersedia</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Pengembang</label>
 
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" name="nama_pengembang" value="<?= $row->nama_pengembang ?>" placeholder="nama_pengembang">
+                    <input type="text" class="form-control" id="inputEmail3" name="nama_pengembang" value="<?= $row->nama_pengembang ?>" placeholder="Nama Pengembang">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Total Unit</label>
 
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputEmail3" name="total_unit_perumahan" value="<?= $row->total_unit_perumahan ?>" placeholder="total_unit_perumahan">
+                    <input type="number" class="form-control" id="inputEmail3" name="total_unit_perumahan" value="<?= $row->total_unit_perumahan ?>" placeholder="Total Unit">
                 </div>
             </div>
             <div class="form-group">
@@ -124,6 +127,7 @@
         <!-- /.box-body -->
         <div class="box-footer">
             <button type="submit" name="<?= $page ?>" class="btn btn-info pull-right">Simpan</button>
+            <a class="btn btn-primary pull-right" href="<?= site_url('admin/detailPerumahan')?>" role="button">Batal</a>
         </div>
         <!-- /.box-footer -->
     </form>

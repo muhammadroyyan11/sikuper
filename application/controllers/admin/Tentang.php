@@ -63,6 +63,9 @@ class Tentang extends CI_Controller
         if (userdata('role') == 1) {
             $where = array('id_tentangKami' => $id_tentangKami);
             $this->base_model->del('tbl_tentang_kami', $where);
+            if ($this->db->affected_rows() > 0) {
+                set_pesan('Data Berhasil Dihapus');
+            }
             redirect('admin/tentang');
         } else {
             redirect('home');
@@ -89,7 +92,7 @@ class Tentang extends CI_Controller
                     $post['image'] = $this->upload->data('file_name');
                     $this->tentang->add($post);
                     if ($this->db->affected_rows() > 0) {
-                        set_pesan('succes', 'Data Berhasil Dismpan');
+                        set_pesan('Data Berhasil Dismpan');
                     }
                     // var_dump($post);
                     redirect('admin/tentang');
@@ -110,7 +113,7 @@ class Tentang extends CI_Controller
                     $post['image'] = $this->upload->data('file_name');
                     $this->tentang->edit($post);
                     if ($this->db->affected_rows() > 0) {
-                        set_pesan('succes', 'Data Berhasil Dismpan');
+                        set_pesan('Data Berhasil Dismpan');
                     }
                     // var_dump($post);
                     redirect('admin/tentang');
@@ -122,7 +125,7 @@ class Tentang extends CI_Controller
                 $post['image'] = null;
                 $this->tentang->edit($post);
                 if ($this->db->affected_rows() > 0) {
-                    set_pesan('succes', 'Data Berhasil Dismpan');
+                    set_pesan('Data Berhasil Dismpan');
                 }
                 redirect('admin/tentang');
             }

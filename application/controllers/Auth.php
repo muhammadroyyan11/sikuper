@@ -65,7 +65,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('login_session');
 
         set_pesan('anda telah berhasil logout');
-        redirect('home');
+        redirect('auth');
     }
 
     public function register()

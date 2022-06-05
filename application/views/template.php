@@ -52,7 +52,7 @@
                             <li <?=$this->uri->segment(1) == 'admin/dashboard' ? 'class="active"' : ''?>><a href="<?= site_url('admin/dashboard') ?>">Dashboard</a></li>
                             <li <?=$this->uri->segment(1) == 'admin/tentang' ? 'class="active"' : ''?>><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
                             <li <?=$this->uri->segment(1) == 'admin/jenisPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
-                            <li <?=$this->uri->segment(1) == 'admin/detailPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/detailPerumahan') ?>">Detail Perumahan</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/detailPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/detailPerumahan') ?>">Perumahan</a></li>
                             <li <?=$this->uri->segment(1) == 'admin/berita' ? 'class="active"' : ''?>><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
                             <li <?=$this->uri->segment(1) == 'admin/users' ? 'class="active"' : ''?>><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
                             <!-- <li class="dropdown">
@@ -88,7 +88,7 @@
                                         <img src="<?= base_url() ?>assets/dist/img/<?= userdata('foto_profil')?>" class="img-circle" alt="User Image">
 
                                         <p>
-                                            <?= userdata('nama') ?> - Web Developer
+                                            <?= userdata('nama') ?>
                                         </p>
                                     </li>
                                     </li>

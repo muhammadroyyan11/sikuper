@@ -31,20 +31,13 @@
         </div>
         <!--  -->
         <br>
-        <div class="row form-group justify-content-end">
-            <div class="col-md-8">
-                <button type="submit" class="btn btn-primary btn-icon-split">
-                    <span class="icon"><i class="fa fa-save"></i></span>
-                    <span class="text">Simpan</span>
-                </button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </div>
+       
         <br>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
         <button type="submit" class="btn btn-success pull-right">Selesai</button>
+        <a class="btn btn-primary pull-right" href="<?= site_url('admin/users')?>" role="button">Batal</a>
     </div>
     <!-- /.box-footer -->
     <?= form_close(); ?>

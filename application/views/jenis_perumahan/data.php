@@ -11,6 +11,7 @@
 
     <!-- /.box-header -->
     <div class="box-body">
+        <?= $this->session->flashdata('pesan'); ?>
         <table id="" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -58,7 +59,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="nama_jenis_perumahan">Nama Jenis Perumahan</label>
-                            <input type="text" class="form-control" id="nama_jenis_perumahan" value="" name="nama_jenis_perumahan" placeholder="Masukkan Nama Jenis">
+                            <input type="text" class="form-control" id="nama_jenis_perumahan" value="" name="nama_jenis" placeholder="Masukkan Nama Jenis">
                         </div>
                         <!-- /.box-body -->
                         <div class="modal-footer">

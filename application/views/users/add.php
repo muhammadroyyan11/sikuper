@@ -62,6 +62,7 @@
     <!-- /.box-body -->
     <div class="box-footer">
         <button type="submit" class="btn btn-success pull-right">Selesai</button>
+        <a class="btn btn-primary pull-right" href="<?= site_url('admin/users')?>" role="button">Batal</a>
     </div>
     <!-- /.box-footer -->
     <?= form_close(); ?>

@@ -86,6 +86,10 @@ class Berita extends CI_Controller
 
             $where = array('id_berita' => $id_berita);
             $this->berita->del('tbl_berita', $where);
+
+            if ($this->db->affected_rows() > 0) {
+                set_pesan('Data Berhasil Dihapus');
+            }
             redirect('admin/berita');
         } else {
             redirect('home');
@@ -113,7 +117,7 @@ class Berita extends CI_Controller
                         $post['image'] = $this->upload->data('file_name');
                         $this->berita->add($post);
                         if ($this->db->affected_rows() > 0) {
-                            set_pesan('succes', 'Data Berhasil Dismpan');
+                            set_pesan('Data Berhasil Dismpan');
                         }
                         var_dump($post);
                         redirect('admin/berita');
@@ -134,7 +138,7 @@ class Berita extends CI_Controller
                         $post['image'] = $this->upload->data('file_name');
                         $this->berita->edit($post);
                         if ($this->db->affected_rows() > 0) {
-                            set_pesan('succes', 'Data Berhasil Dismpan');
+                            set_pesan('Data Berhasil Dismpan');
                         }
                         // var_dump($post);
                         redirect('admin/berita');
@@ -146,7 +150,7 @@ class Berita extends CI_Controller
                     $post['image'] = null;
                     $this->berita->edit($post);
                     if ($this->db->affected_rows() > 0) {
-                        set_pesan('succes', 'Data Berhasil Dismpan');
+                        set_pesan('Data Berhasil Dismpan');
                     }
                     redirect('admin/berita');
                 }

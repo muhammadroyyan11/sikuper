@@ -39,7 +39,7 @@ class JenisPerumahan extends CI_Controller
         $this->jenis->edit($post);
 
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');
+            set_pesan('Data berhasil di upload.');
         }
         redirect('admin/jenisPerumahan');
     }
@@ -50,7 +50,7 @@ class JenisPerumahan extends CI_Controller
         $this->jenis->add($post);
 
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('succes', 'Data Berhasil Disimpan');
+            set_pesan('Data berhasil di upload.');
         }
 
         redirect('admin/jenisPerumahan');
@@ -61,6 +61,9 @@ class JenisPerumahan extends CI_Controller
 
         $where=array('id_jenis_perumahan' => $id_jenis_perumhan);
 		$this->base_model->del('tbl_jenis_perumahan', $where);
+        if ($this->db->affected_rows() > 0) {
+            set_pesan('Data berhasil di hapus.');
+        }
 		redirect('admin/jenisPerumahan');
     }
 }

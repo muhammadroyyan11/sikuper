@@ -2,15 +2,16 @@
     <div class="box-header">
         <h3 class="box-title"><?= $title ?></h3>
         <div class="pull-right">
-            <a href="<?= site_url('admin/berita/add')?>" class="btn btn-primary btn-flat">
-                    <i class="fa fa-user-plus"></i> Tambah
-                </a>
+            <a href="<?= site_url('admin/berita/add') ?>" class="btn btn-primary btn-flat">
+                <i class="fa fa-user-plus"></i> Tambah
+            </a>
             <!-- <button class="btn btn-primary btn-flat" data-toggle="modal" data-target="#modal-default"><i class="fa fa-user-plus"></i> Tambah</button> -->
         </div>
     </div>
 
     <!-- /.box-header -->
     <div class="box-body">
+        <?= $this->session->flashdata('pesan'); ?>
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
