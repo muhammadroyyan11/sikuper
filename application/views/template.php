@@ -78,14 +78,14 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?= base_url() ?>assets/dist/img/<?= userdata('foto_profil')?>" class="user-image" alt="User Image">
+                                    <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil')?>" class="user-image" alt="User Image">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs"><?= userdata('nama') ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="<?= base_url() ?>assets/dist/img/<?= userdata('foto_profil')?>" class="img-circle" alt="User Image">
+                                        <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil')?>" class="img-circle" alt="User Image">
 
                                         <p>
                                             <?= userdata('nama') ?>

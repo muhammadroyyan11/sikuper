@@ -3,7 +3,7 @@
 class Users_m extends CI_Model
 {
 
-    public function get()
+    public function get($id = null)
     {
         $query = $this->db->get('tbl_user');
         return $query;
@@ -47,12 +47,27 @@ class Users_m extends CI_Model
 
     public function edit($post)
     {
-        $params['nama'] = $post['nama'];
-        $params['username'] = $post['username'];
-        if (!empty($post['password'])) {
+        // $params['nama'] = $post['nama'];
+        // $params['username'] = $post['username'];
+        // if (!empty($post['password'])) {
+        //     $params['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
+        // }
+        // $params['alamat'] = $post['alamat'] != "" ? $post['alamat'] : null;
+        // $this->db->where('id_user', $post['id_user']);
+        // $this->db->update('tbl_user', $params);
+
+        $params = [
+            'nama' => $post['nama'],
+            'username' => $post['username'],
+            'alamat' => $post['alamat'],
+        ];
+
+        if ($post['password'] != null) {
             $params['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
         }
-        $params['alamat'] = $post['alamat'] != "" ? $post['alamat'] : null;
+        if ($post['image'] != null) {
+            $params['foto_profil'] = $post['image'];
+        }
         $this->db->where('id_user', $post['id_user']);
         $this->db->update('tbl_user', $params);
     }

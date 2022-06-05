@@ -5,13 +5,22 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <?= form_open(); ?>
+    <?= form_open('admin/users/prosesEdit/'); ?>
     <div class="box-body">
         <div class="row form-group">
             <label class="col-md-4 text-md-right" for="username">Username</label>
             <div class="col-md-6">
+                <input type="hidden" name="id_user" value="<?= $row->id_user ?>">
                 <input value="<?= $row->username ?>" type="text" id="username" name="username" class="form-control" placeholder="Username">
                 <?= form_error('username', '<span class="text-danger small">', '</span>'); ?>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-4 text-md-right" for="nama">password</label>
+            <div class="col-md-6">
+                <input value="" type="text" id="password" name="password" class="form-control" placeholder="password">
+                <?= form_error('password', '<span class="text-danger small">', '</span>'); ?>
+                <small>Biarkan kosong jika tidak ada perubahan password</small>
             </div>
         </div>
         <hr>

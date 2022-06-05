@@ -42,7 +42,7 @@
             <!-- Profile Image -->
             <div class="box box-primary">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/dist/img/<?= userdata('foto_profil') ?>" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil') ?>" alt="User profile picture">
 
                     <h3 class="profile-username text-center"><?= userdata('nama') ?></h3>
 
@@ -66,7 +66,8 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="settings">
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="<?= site_url('user/prosesEdit/') ?>" method="post" enctype="multipart/form-data">
+                        <?= $this->session->flashdata('pesan'); ?>
                         <div class="form-group">
                             <label for="inputName" class="col-sm-2 control-label">Nama</label>
 
@@ -79,7 +80,7 @@
                             <label for="inputEmail" class="col-sm-2 control-label">Username</label>
 
                             <div class="col-sm-10">
-                                <input type="username" name="username" class="form-control" value="<?= userdata('username') ?>" id="inputEmail" placeholder="Username">
+                                <input type="username" readonly name="username" class="form-control" value="<?= userdata('username') ?>" id="inputEmail" placeholder="Username">
                             </div>
                         </div>
                         <div class="form-group">
@@ -94,20 +95,22 @@
 
                             <div class="col-sm-10">
                                 <input type="password" name="password" class="form-control" id="inputalamat" placeholder="Password">
+                                <small>Biarkan kosong jika tidak ada perubahan password</small>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputSkills" class="col-sm-2 control-label">Re-Password</label>
+                            <label for="inputName" class="col-sm-2 control-label">Foto Profil</label>
 
                             <div class="col-sm-10">
-                                <input type="tepasswordxt" name="password2" class="form-control" id="inputSkills" placeholder="Masukkan ulang Password">
+                            <input type="file" class="form-control" name="image" value="<?= userdata('foto_profil') ?>" style="margin-top: 10px;">
+                            <small>Biarkan kosong jika tidak ada perubahan</small>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                        <input type="checkbox"> Data yang saya masukkan sudah benar</a>
                                     </label>
                                 </div>
                             </div>

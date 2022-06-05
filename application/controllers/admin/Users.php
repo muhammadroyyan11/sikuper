@@ -83,28 +83,23 @@ class Users extends CI_Controller
     public function edit($getId)
     {
         // $id = encode_php_tags($getId);
-        $this->_validasi('edit');
+        // $this->_validasi('edit');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = "Edit User";
-            $data['row'] = $this->users->getEdit('tbl_user', ['id_user' => $getId])->row();
-            $this->template->load('template', 'users/edit', $data);
-        } else {
-            $input = $this->input->post(null, true);
-            $input_data = [
-                'nama'          => $input['nama'],
-                'username'      => $input['username'],
-                'alamat'       => $input['alamat']
-            ];
+        $data['title'] = "Edit User";
+        $data['row'] = $this->users->getEdit('tbl_user', ['id_user' => $getId])->row();
+        $this->template->load('template', 'users/edit', $data);
+    }
 
-            if ($this->users->update('tbl_user', 'id_user', $getId, $input_data)) {
-                set_pesan('data berhasil diubah.');
-                redirect('admin/user');
-            } else {
-                set_pesan('data gagal diubah.', false);
-                redirect('user/edit/' . $getId);
-            }
+    public function prosesEdit()
+    {
+        $post = $this->input->post(null, TRUE);
+        // $id_jeniss_perumahan = $post['id_jenis_perumahan'];
+        $this->users->edit($post);
+
+        if ($this->db->affected_rows() > 0) {
+            set_pesan('Data berhasil diedit.');
         }
+        redirect('admin/users');
     }
 
     public function del($id)

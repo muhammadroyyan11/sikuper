@@ -29,47 +29,103 @@ class User extends CI_Controller
         $this->load->library('pagination');
     }
 
+    // public function index()
+    // {
+    //     $this->form_validation->set_rules('nama', 'Nama', 'required');
+    //     $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|callback_username_check');
+    //     if ($this->input->post('password')) {
+    //         $this->form_validation->set_rules('password', 'Password', 'min_length[5]');
+    //         $this->form_validation->set_rules(
+    //             'password2',
+    //             'Password Confirmation',
+    //             'matches[password]',
+    //             array('matches' => '%s tidak sesuai')
+    //         );
+    //     }
+    //     if ($this->input->post('password2')) {
+    //         $this->form_validation->set_rules('password', 'Password', 'min_length[5]');
+    //         $this->form_validation->set_rules(
+    //             'password2',
+    //             'Password Confirmation',
+    //             'matches[password]',
+    //             array('matches' => '%s tidak sesuai')
+    //         );
+    //     }
+    //     $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+
+    //     $this->form_validation->set_message('required', '%s Masih Kosong');
+    //     $this->form_validation->set_message('min_length', '%s Minimal 5 karakter');
+    //     $this->form_validation->set_message('is_unique', '%s sudah ada');
+
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $data['title'] = 'PROFIL';
+    //         $this->load->view('users/profil', $data);
+    //     } else {
+    //         // $post = $this->input->post(null, TRUE);
+    //         // var_dump($post);
+    //         // // $this->user->edit($post);
+    //         // if ($this->db->affected_rows() > 0) {
+    //         //     echo "<script>alert('Data Berhasil Di Simpan');</script>";
+    //         // }
+    //         // echo "<script>window.location='" . site_url('user') . "';</script>";
+    //     }
+
+
+    // }
+
     public function index()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|callback_username_check');
-        if ($this->input->post('password')) {
-            $this->form_validation->set_rules('password', 'Password', 'min_length[5]');
-            $this->form_validation->set_rules(
-                'password2',
-                'Password Confirmation',
-                'matches[password]',
-                array('matches' => '%s tidak sesuai')
-            );
-        }
-        if ($this->input->post('password2')) {
-            $this->form_validation->set_rules('password', 'Password', 'min_length[5]');
-            $this->form_validation->set_rules(
-                'password2',
-                'Password Confirmation',
-                'matches[password]',
-                array('matches' => '%s tidak sesuai')
-            );
-        }
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        // $id = encode_php_tags();
+        // $this->_validasi('edit');
 
-        $this->form_validation->set_message('required', '%s Masih Kosong');
-        $this->form_validation->set_message('min_length', '%s Minimal 5 karakter');
-        $this->form_validation->set_message('is_unique', '%s sudah ada');
-
-        if ($this->form_validation->run() == FALSE) {
-            $data['title'] = 'PROFIL';
-            $this->load->view('users/profil', $data);
-        } else {
-            // $post = $this->input->post(null, TRUE);
-            // var_dump($post);
-            // // $this->user->edit($post);
-            // if ($this->db->affected_rows() > 0) {
-            //     echo "<script>alert('Data Berhasil Di Simpan');</script>";
-            // }
-            // echo "<script>window.location='" . site_url('user') . "';</script>";
-        }
+        $data['title'] = 'PROFIL';
+        $this->load->view('users/profil', $data);
     }
+
+    public function prosesEdit()
+    {
+        $post = $this->input->post(null, TRUE);
+        $config['upload_path']          = './assets/uploads/fotoProfil/';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 5000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+        $config['file_name']            = userdata('username') . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        // $id_jeniss_perumahan = $post['id_jenis_perumahan'];
+        $this->load->library('upload', $config);
+
+        if (@$_FILES['image']['name'] != null) {
+            if ($this->upload->do_upload('image')) {
+                $post['image'] = $this->upload->data('file_name');
+                $this->user->edit($post);
+                if ($this->db->affected_rows() > 0) {
+                    set_pesan('Data Berhasil Dismpan');
+                }
+                var_dump($post);
+                // redirect('user');
+            } else {
+                $error = $this->upload->display_error();
+                echo $error;
+            }
+        } else {
+            $post['image'] = null;
+            $this->user->edit($post);
+            if ($this->db->affected_rows() > 0) {
+                set_pesan('Data Berhasil Dismpan');
+            }
+            var_dump($post);
+            // redirect('user');
+        }
+
+        $this->user->edit($post);
+
+        if ($this->db->affected_rows() > 0) {
+            set_pesan('Data berhasil diedit.');
+        }
+        redirect('user');
+    }
+
+
 
     private function _validasi($mode)
     {
