@@ -91,7 +91,7 @@ class Auth extends CI_Controller
                 set_pesan('daftar berhasil. Silahkan Login.');
                 redirect('auth');
             } else {
-                set_pesan('gagal menyimpan ke database', false);
+                set_pesan('Gagal menyimpan ke database', false);
                 redirect('register');
             }
         }

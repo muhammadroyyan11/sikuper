@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/client/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    
+
 
 </head>
 
@@ -151,44 +151,44 @@
         </script>
         <!--End of Tawk.to Script-->
 
-        <script>
-            var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?1600';
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url;
-            var options = {
-                "enabled": true,
-                "chatButtonSetting": {
-                    "backgroundColor": "#4dc247",
-                    "ctaText": "",
-                    "borderRadius": "25",
-                    "marginLeft": "0",
-                    "marginBottom": "25",
-                    "marginRight": "100",
-                    "position": "right"
-                },
-                "brandSetting": {
-                    "brandName": "SIKUPER",
-                    "brandSubTitle": "Typically replies within a day",
-                    "brandImg": "https://ibb.co/QjJj8Hb",
-                    "welcomeText": "Hi,\nAda yang bisa saya bantu?",
-                    "messageText": "Hello, Saya ingin mengetahui Informasi lebih lanjut terkait perumahan",
-                    "backgroundColor": "#0a5f54",
-                    "ctaText": "Mulai Chat",
-                    "borderRadius": "100",
-                    "autoShow": false,
-                    "phoneNumber": "62852228282728"
-                }
-            };
-            s.onload = function() {
-                CreateWhatsappChatWidget(options);
-            };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        </script>
-
     <?php } ?>
+
+    <script>
+        var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?1600';
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = url;
+        var options = {
+            "enabled": true,
+            "chatButtonSetting": {
+                "backgroundColor": "#4dc247",
+                "ctaText": "",
+                "borderRadius": "25",
+                "marginLeft": "0",
+                "marginBottom": "25",
+                "marginRight": "100",
+                "position": "right"
+            },
+            "brandSetting": {
+                "brandName": "SIKUPER",
+                "brandSubTitle": "Typically replies within a day",
+                "brandImg": "https://ibb.co/QjJj8Hb",
+                "welcomeText": "Hi,\nAda yang bisa saya bantu?",
+                "messageText": "Hello, Saya ingin mengetahui Informasi lebih lanjut terkait perumahan",
+                "backgroundColor": "#0a5f54",
+                "ctaText": "Mulai Chat",
+                "borderRadius": "100",
+                "autoShow": false,
+                "phoneNumber": "62852228282728"
+            }
+        };
+        s.onload = function() {
+            CreateWhatsappChatWidget(options);
+        };
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    </script>
 
 
     <!--End of Tawk.to Script-->

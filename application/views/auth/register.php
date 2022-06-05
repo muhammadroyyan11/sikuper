@@ -7,6 +7,7 @@
         <p class="login-box-msg">Register a new membership</p>
 
         <form action="" method="post">
+            <?= $this->session->flashdata('pesan'); ?>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -43,7 +44,7 @@
             </div>
         </form>
 
-        <a href="<?= site_url('auth')?>" class="text-center">Sudah Punya Akun</a>
+        <a href="<?= site_url('auth') ?>" class="text-center">Sudah Punya Akun</a>
     </div>
     <!-- /.form-box -->
 </div>
