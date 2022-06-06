@@ -114,7 +114,8 @@
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
-        </svg></div>
+        </svg>
+    </div>
 
 
     <script src="<?= base_url() ?>assets/client/js/jquery.min.js"></script>
@@ -150,7 +151,6 @@
             })();
         </script>
         <!--End of Tawk.to Script-->
-
     <?php } ?>
 
     <script>
@@ -188,6 +188,60 @@
         };
         var x = document.getElementsByTagName('script')[0];
         x.parentNode.insertBefore(s, x);
+    </script>
+
+    <style>
+        #loading {
+            text-align: center;
+            background: url('<?php echo base_url(); ?>asset/loader.gif') no-repeat center;
+            height: 150px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            filter_data(1);
+
+            function filter_data(page) {
+                $('.filter_data').html('<div id="loading" style="" ></div>');
+                var action = 'fetch_data';
+                var lokasi = get_filter('lokasi');
+                $.ajax({
+                    url: "<?php echo base_url(); ?>perumahan/fetch_data/" + page,
+                    method: "POST",
+                    dataType: "JSON",
+                    data: {
+                        action: action,
+                        lokasi: lokasi,
+                    },
+                    success: function(data) {
+                        $('.filter_data').html(data.product_list);
+                        $('#pagination_link').html(data.pagination_link);
+                    }
+                })
+            }
+
+            function get_filter(class_name) {
+                var filter = [];
+                $('.' + class_name + ':checked').each(function() {
+                    filter.push($(this).val());
+                });
+                return filter;
+            }
+
+            $(document).on('click', '.pagination li a', function(event) {
+                event.preventDefault();
+                var page = $(this).data('ci-pagination-page');
+                filter_data(page);
+            });
+
+            $('.common_selector').click(function() {
+                filter_data(1);
+            });
+
+
+        });
     </script>
 
 

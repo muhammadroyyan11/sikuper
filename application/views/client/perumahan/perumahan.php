@@ -31,26 +31,7 @@
         </div><br>
         <div class="container" id="card-lists">
             <div class="row filter_data">
-                <?php
-                foreach ($perumahan->result() as $key => $row) { ?>
-                    <div class="col-md-4">
-                        <div class="property-wrap ftco-animate card-body">
-                            <a href="<?= site_url("perumahan/read/" . $row->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>);">
-                            </a>
-                            <div class="text">
-                                <h3><a href="#"><?= $row->nama_perumahan ?></a></h3>
-                                <span class="location"><?= $row->nama_jenis ?></span>
-                                <span class="location"><?= $row->fasilitas  ?></span>
-                                <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-                                    <span class="fa fa-link"></span>
-                                </a>
-                                <hr>
-                                <span class="location"><?= $row->lokasi  ?></span>
-                                <span class="text-right"></span>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
+
             </div>
         </div>
         <div class="row mt-5">
@@ -84,7 +65,9 @@
                     <label>Lokasi :</label>
                     <?php foreach ($lokasi->result_array() as $key => $data) { ?>
                         <div class="list-group-item checkbox">
-                            <label><input type="radio" name="lokasi" class="common_selector lokasi" value="<?php echo $data['lokasi']; ?>"> <?php echo $data['lokasi']; ?></label>
+                            <!-- <label><input type="radio" name="lokasi" class="common_selector lokasi" value="<?php echo $data['lokasi']; ?>"> <?php echo $data['lokasi']; ?></label> -->
+                            <label><input type="checkbox" class="common_selector lokasi" value="<?php echo $data['lokasi']; ?>"> <?php echo $data['lokasi']; ?></label>
+
                             <!-- <select name="lokasi[]" form="carform">
                                 <option value="<?php echo $data['lokasi']; ?>"><?php echo $data['lokasi']; ?></option>
                             </select> -->
@@ -92,10 +75,9 @@
                     <?php } ?>
                 </div>
 
-                <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                <!-- <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary">filter</button>
-                </div>
+                </div> -->
             </form>
         </div>
     </div>

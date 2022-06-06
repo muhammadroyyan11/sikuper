@@ -32,11 +32,11 @@ class Detail_m extends CI_Model
 
     function make_query($lokasi)
     {
-        $query = "SELECT * FROM tbl_perumahan";
+        $query = "SELECT * FROM tbl_perumahan JOIN tbl_jenis_perumahan ON tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan";
 
         if (isset($lokasi)) {
             $lokasi_filter = implode("','", $lokasi);
-            $query .= "AND lokasi IN('" . $lokasi_filter . "')";
+            $query .= " WHERE lokasi IN('" . $lokasi_filter . "')";
         }
         return $query;
     }
@@ -71,18 +71,18 @@ class Detail_m extends CI_Model
     function fetch_data($limit, $start, $lokasi)
     {
         $query = $this->make_query($lokasi);
-
+        // $join = $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
         $query .= ' LIMIT ' . $start . ', ' . $limit;
 
         $data = $this->db->query($query);
 
         $output = '';
         if ($data->num_rows() > 0) {
-            foreach ($data->result_array() as $row) {
+            foreach ($data->result() as $row) {
                 $output .= '
-       <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
-                        <a href="<?= site_url("perumahan/read/" . $row->id_perumahan) ?>" class="img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $row->foto_perumahan ?>);">
+                <div class="col-md-4">
+                    <div class="property-wrap">
+                        <a href="'. site_url("perumahan/read/" . $row->id_perumahan).'" class="img" style="background-image: url('. base_url().'assets/uploads/perumahan/'. $row->foto_perumahan.');">
                         </a>
                         <div class="text">
                             <ul class="property_list">
@@ -90,18 +90,16 @@ class Detail_m extends CI_Model
                                 <li><span class="flaticon-bathtub"></span>2</li>
                                 <li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
                             </ul>
-                            <h3><a href="#"><?= $row->nama_perumahan ?></a></h3>
-                            <span class="location"><?= $row->nama_jenis ?></span>
-                            <span class="location"><?= $row->fasilitas  ?></span>
-                            <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+                            <h3><a href="'. site_url("perumahan/read/" . $row->id_perumahan).'">'. $row->nama_perumahan .'</a></h3>
+                            <span class="location">'. $row->nama_jenis .'</span>
+                            <span class="location">'. $row->fasilitas .'</span>
+                            <a href="'. site_url("perumahan/read/" . $row->id_perumahan).'" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="fa fa-link"></span>
                             </a>
                             <div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
                                 <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
+                                    <h3 class="ml-2">' . $row->lokasi .' </h3>
                                 </div>
-                                <span class="text-right">2 weeks ago</span>
                             </div>
                         </div>
                     </div>
