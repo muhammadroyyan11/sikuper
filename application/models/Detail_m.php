@@ -21,22 +21,27 @@ class Detail_m extends CI_Model
         return $this->db->get();
     }
 
-    function fetch_filter_type2($jenis_perumahan)
+    function fetch_filter_type2()
     {
         $this->db->distinct();
-        $this->db->select($jenis_perumahan);
+        $this->db->select('*');
         $this->db->from('tbl_jenis_perumahan');
         // $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
         return $this->db->get();
     }
 
-    function make_query($lokasi)
+    function make_query($lokasi, $jenis)
     {
-        $query = "SELECT * FROM tbl_perumahan JOIN tbl_jenis_perumahan ON tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan";
+        $query = "SELECT * FROM tbl_perumahan JOIN tbl_jenis_perumahan ON tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan WHERE ketersediaan = 'Tersedia' ";
 
         if (isset($lokasi)) {
             $lokasi_filter = implode("','", $lokasi);
-            $query .= " WHERE lokasi IN('" . $lokasi_filter . "')";
+            $query .= " AND lokasi IN('" . $lokasi_filter . "')";
+        }
+
+        if (isset($jenis)) {
+            $jenis_filter = implode("','", $jenis);
+            $query .= " AND id_perumahan IN('" . $jenis_filter . "')";
         }
         return $query;
     }
@@ -61,16 +66,16 @@ class Detail_m extends CI_Model
     }
     
 
-    function count_all($lokasi)
-    {
-        $query = $this->make_query($lokasi);
-        $data = $this->db->query($query);
-        return $data->num_rows();
-    }
+    // function count_all($lokasi)
+    // {
+    //     $query = $this->make_query($lokasi);
+    //     $data = $this->db->query($query);
+    //     return $data->num_rows();
+    // }
 
-    function fetch_data($limit, $start, $lokasi)
+    function fetch_data($limit, $start, $lokasi, $jenis)
     {
-        $query = $this->make_query($lokasi);
+        $query = $this->make_query($lokasi, $jenis);
         // $join = $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
         $query .= ' LIMIT ' . $start . ', ' . $limit;
 
@@ -81,15 +86,10 @@ class Detail_m extends CI_Model
             foreach ($data->result() as $row) {
                 $output .= '
                 <div class="col-md-4">
-                    <div class="property-wrap">
+                    <div class="property-wrap card-body">
                         <a href="'. site_url("perumahan/read/" . $row->id_perumahan).'" class="img" style="background-image: url('. base_url().'assets/uploads/perumahan/'. $row->foto_perumahan.');">
                         </a>
                         <div class="text">
-                            <ul class="property_list">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-                            </ul>
                             <h3><a href="'. site_url("perumahan/read/" . $row->id_perumahan).'">'. $row->nama_perumahan .'</a></h3>
                             <span class="location">'. $row->nama_jenis .'</span>
                             <span class="location">'. $row->fasilitas .'</span>
@@ -99,6 +99,8 @@ class Detail_m extends CI_Model
                             <div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
                                 <div class="d-flex align-items-center">
                                     <h3 class="ml-2">' . $row->lokasi .' </h3>
+                                    <input type="Text" value="'. $row->id_jenis_perumahan .'" />
+                                    <input type="Text" value="'. $row->id_perumahan .'" />
                                 </div>
                             </div>
                         </div>
@@ -107,7 +109,7 @@ class Detail_m extends CI_Model
        ';
             }
         } else {
-            $output = '<h3>No Data Found</h3>';
+            $output = '<center><h4>Perumahan tidak tersedia</h4></center>';
         }
         return $output;
     }

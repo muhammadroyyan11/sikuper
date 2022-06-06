@@ -36,7 +36,7 @@
         </div>
         <div class="row mt-5">
             <div class="col text-center pagination_link">
-
+                
             </div>
         </div>
     </div>
@@ -54,14 +54,14 @@
             </div>
             <form action="<?= site_url('perumahan/filter') ?>" method="GET">
                 <div class="modal-body">
-                    <!-- <label>Jenis Perumahan :</label>
+                    <label>Jenis Perumahan :</label>
                     <?php foreach ($jenis->result_array() as $key => $data) { ?>
                         <div class="list-group-item checkbox">
-                            <label><input type="checkbox" name="id_jenis_perumahan" class="common_selector lokasi" value="<?php echo $data['nama_jenis']; ?>"> <?php echo $data['nama_jenis']; ?></label>
+                            <label><input type="checkbox" name="jenis" class="common_selector jenis" value="<?php echo $data['id_jenis_perumahan']; ?>"> <?php echo $data['nama_jenis']; ?></label>
                            
                         </div>
                     <?php } ?>
-                    <hr> -->
+                    <hr>
                     <label>Lokasi :</label>
                     <?php foreach ($lokasi->result_array() as $key => $data) { ?>
                         <div class="list-group-item checkbox">

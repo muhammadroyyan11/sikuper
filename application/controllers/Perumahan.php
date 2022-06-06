@@ -45,7 +45,7 @@ class Perumahan extends CI_Controller
 		$data['perumahan'] = $this->detail->get_data($config['per_page'], $from);
 
 		$data['lokasi'] = $this->detail->fetch_filter_type('lokasi');
-		$data['jenis'] = $this->detail->fetch_filter_type2('nama_jenis');
+		$data['jenis'] = $this->detail->fetch_filter_type2();
 
 		// $data['perumahan'] = $this->detail->getJoin();
 		$data['title'] = 'PERUMAHAN';
@@ -55,6 +55,7 @@ class Perumahan extends CI_Controller
 	public function fetch_data()
 	{
 		$lokasi = $this->input->post('lokasi');
+		$jenis = $this->input->post('jenis');
 
 		$config = array();
 		$config['base_url'] = base_url() . 'perumahan/index/';
@@ -84,8 +85,8 @@ class Perumahan extends CI_Controller
 		$page = $this->uri->segment(3);
 		$start = ($page - 1) * $config['per_page'];
 		$output = array(
-			'pagination_link'  => $this->pagination->create_links(),
-			'product_list'   => $this->detail->fetch_data($config["per_page"], $start, $lokasi)
+			// 'pagination_link'  => $this->pagination->create_links(),
+			'product_list'   => $this->detail->fetch_data($config["per_page"], $start, $lokasi, $jenis)
 		);
 		echo json_encode($output);
 	}

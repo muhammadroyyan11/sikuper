@@ -207,6 +207,7 @@
                 $('.filter_data').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var lokasi = get_filter('lokasi');
+                var jenis = get_filter('jenis');
                 $.ajax({
                     url: "<?php echo base_url(); ?>perumahan/fetch_data/" + page,
                     method: "POST",
@@ -214,10 +215,11 @@
                     data: {
                         action: action,
                         lokasi: lokasi,
+                        jenis: jenis,
                     },
                     success: function(data) {
                         $('.filter_data').html(data.product_list);
-                        $('#pagination_link').html(data.pagination_link);
+                        // $('#pagination_link').html(data.pagination_link);
                     }
                 })
             }
