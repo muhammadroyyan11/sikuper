@@ -8,7 +8,6 @@
             <!-- <button class="btn btn-primary btn-flat" data-toggle="modal" data-target="#modal-default"><i class="fa fa-user-plus"></i> Tambah</button> -->
         </div>
     </div>
-
     <!-- /.box-header -->
     <div class="box-body">
         <div class="table-responsive">

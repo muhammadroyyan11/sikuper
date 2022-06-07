@@ -16,15 +16,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
     <!-- DataTables -->
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-
-
-
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/skins/_all-skins.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -55,12 +49,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li <?= $this->uri->segment(1) == 'admin/dashboard' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/dashboard') ?>">Dashboard</a></li>
-                            <li <?= $this->uri->segment(1) == 'admin/tentang' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
-                            <li <?= $this->uri->segment(1) == 'admin/jenisPerumahan' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
-                            <li <?= $this->uri->segment(1) == 'admin/detailPerumahan' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/detailPerumahan') ?>">Perumahan</a></li>
-                            <li <?= $this->uri->segment(1) == 'admin/berita' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
-                            <li <?= $this->uri->segment(1) == 'admin/users' ? 'class="active"' : '' ?>><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/dashboard' ? 'class="active"' : ''?>><a href="<?= site_url('admin/dashboard') ?>">Dashboard</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/tentang' ? 'class="active"' : ''?>><a href="<?= site_url('admin/tentang') ?>">Tentang kami</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/jenisPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/jenisPerumahan') ?>">Jenis Perumahan</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/detailPerumahan' ? 'class="active"' : ''?>><a href="<?= site_url('admin/detailPerumahan') ?>">Perumahan</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/berita' ? 'class="active"' : ''?>><a href="<?= site_url('admin/berita') ?>">Data Berita</a></li>
+                            <li <?=$this->uri->segment(1) == 'admin/users' ? 'class="active"' : ''?>><a href="<?= site_url('admin/users') ?>">Data Users</a></li>
                             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -84,31 +78,31 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil') ?>" class="user-image" alt="User Image">
+                                    <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil')?>" class="user-image" alt="User Image">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs"><?= userdata('nama') ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil') ?>" class="img-circle" alt="User Image">
+                                        <img src="<?= base_url() ?>assets/uploads/fotoProfil/<?= userdata('foto_profil')?>" class="img-circle" alt="User Image">
 
                                         <p>
                                             <?= userdata('nama') ?>
                                         </p>
                                     </li>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="<?= site_url('user')?>" class="btn btn-default btn-flat">EDIT PROFILE</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="<?= site_url('auth/logout')?>" class="btn btn-default btn-flat">LOGOUT</a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">EDIT PROFILE</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="<?= site_url('auth/logout') ?>" class="btn btn-default btn-flat">LOGOUT</a>
-                                </div>
-                            </li>
-                        </ul>
-                        </li>
                         </ul>
                     </div>
                     <!-- /.navbar-custom-menu -->
@@ -133,7 +127,7 @@
         <footer class="main-footer">
             <div class="container">
                 <div class="pull-right hidden-xs">
-
+                    
                 </div>
                 <strong>Copyright &copy; 2022 <a href="#">SIKUPER</a>.</strong> All rights
                 reserved.
@@ -144,7 +138,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery 3 -->
-    <!-- <script src="<?= base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script> -->
+    <script src="<?= base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="<?= base_url() ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- SlimScroll -->
@@ -156,16 +150,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url() ?>assets/dist/js/demo.js"></script>
     <!-- DataTables -->
-    <!-- <script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
+    <script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- CK Editor -->
     <script src="<?= base_url() ?>assets/bower_components/ckeditor/ckeditor.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
 </body>
 
 <script>
@@ -177,8 +165,7 @@
             'searching': false,
             'ordering': true,
             'info': true,
-            'autoWidth': false,
-            responsive: true
+            'autoWidth': false
         })
     })
 </script>
