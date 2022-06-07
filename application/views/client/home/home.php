@@ -69,16 +69,16 @@
                     <?php foreach ($perumahan->result() as $key => $data) { ?>
                         <div class="item">
                             <div class="property-wrap ftco-animate">
-                                <a href="#" class="block-20 img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
+                                <a href="<?= site_url('perumahan/read/' . $data->id_perumahan)?>" class="block-20 img" style="background-image: url(<?= base_url() ?>assets/uploads/perumahan/<?= $data->foto_perumahan ?>);">
                                 </a>
                                 <div class="text">
                                     <ul class="property_list">
                                         <li><span class="flaticon-floor-plan"></span><?= $data->luas_tanah ?> m2</li>
                                     </ul>
-                                    <h3><a href="#"><?= $data->nama_perumahan ?></a></h3>
+                                    <h3><a href="<?= site_url('perumahan/read/' . $data->id_perumahan)?>"><?= $data->nama_perumahan ?></a></h3>
                                     <span class="location"><?= $data->nama_jenis ?></span>
                                     <span class="location"><?= $data->fasilitas  ?></span>
-                                    <a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+                                    <a href="<?= site_url('perumahan/read/' . $data->id_perumahan)?>" class="d-flex align-items-center justify-content-center btn-custom">
                                         <span class="fa fa-link"></span>
                                     </a>
                                     <hr>

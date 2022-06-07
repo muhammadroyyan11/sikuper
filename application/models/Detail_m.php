@@ -32,7 +32,12 @@ class Detail_m extends CI_Model
 
     function make_query($lokasi, $jenis)
     {
-        $query = "SELECT * FROM tbl_perumahan JOIN tbl_jenis_perumahan ON tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan WHERE ketersediaan = 'Tersedia' ";
+        // $query = "SELECT * FROM tbl_perumahan JOIN tbl_jenis_perumahan ON tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan WHERE ketersediaan = 'Tersedia' ";
+        $query = "SELECT tbl_perumahan.id_perumahan, tbl_perumahan.id_jenis_perumahan as 'iki', tbl_perumahan.nama_perumahan, tbl_perumahan.lokasi, tbl_perumahan.foto_perumahan, tbl_perumahan.fasilitas, tbl_perumahan.luas_tanah, tbl_perumahan.ketersediaan ,tbl_jenis_perumahan.nama_jenis, tbl_jenis_perumahan.id_jenis_perumahan as 'id1'
+        FROM tbl_perumahan
+        JOIN tbl_jenis_perumahan
+        ON tbl_perumahan.id_jenis_perumahan = tbl_jenis_perumahan.id_jenis_perumahan  WHERE ketersediaan = 'Tersedia'
+        ";
 
         if (isset($lokasi)) {
             $lokasi_filter = implode("','", $lokasi);
@@ -41,7 +46,7 @@ class Detail_m extends CI_Model
 
         if (isset($jenis)) {
             $jenis_filter = implode("','", $jenis);
-            $query .= " AND id_perumahan IN('" . $jenis_filter . "')";
+            $query .= " AND tbl_perumahan.id_jenis_perumahan IN('" . $jenis_filter . "')";
         }
         return $query;
     }
@@ -73,11 +78,11 @@ class Detail_m extends CI_Model
     //     return $data->num_rows();
     // }
 
-    function fetch_data($limit, $start, $lokasi, $jenis)
+    function fetch_data( $lokasi, $jenis)
     {
         $query = $this->make_query($lokasi, $jenis);
         // $join = $this->db->join('tbl_jenis_perumahan', 'tbl_jenis_perumahan.id_jenis_perumahan = tbl_perumahan.id_jenis_perumahan');
-        $query .= ' LIMIT ' . $start . ', ' . $limit;
+        // $query .= ' LIMIT ' . $start . ', ' . $limit;
 
         $data = $this->db->query($query);
 
@@ -99,8 +104,6 @@ class Detail_m extends CI_Model
                             <div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
                                 <div class="d-flex align-items-center">
                                     <h3 class="ml-2">' . $row->lokasi .' </h3>
-                                    <input type="Text" value="'. $row->id_jenis_perumahan .'" />
-                                    <input type="Text" value="'. $row->id_perumahan .'" />
                                 </div>
                             </div>
                         </div>

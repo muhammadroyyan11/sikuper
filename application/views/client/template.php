@@ -232,11 +232,11 @@
                 return filter;
             }
 
-            $(document).on('click', '.pagination li a', function(event) {
-                event.preventDefault();
-                var page = $(this).data('ci-pagination-page');
-                filter_data(page);
-            });
+            // $(document).on('click', '.pagination li a', function(event) {
+            //     event.preventDefault();
+            //     var page = $(this).data('ci-pagination-page');
+            //     filter_data(page);
+            // });
 
             $('.common_selector').click(function() {
                 filter_data(1);

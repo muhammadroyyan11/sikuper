@@ -18,7 +18,7 @@ class Berita extends CI_Controller
 	{
 		$config['base_url'] = base_url().'berita/index/';
 		$config['total_rows'] = $this->db->count_all('tbl_berita');
-		$config['per_page'] = 9;
+		$config['per_page'] = 1;
 		$from = $this->uri->segment(3);
 		$choise = $config["total_rows"] / $config['per_page'];
 		$config["num_links"] = floor($choise);
