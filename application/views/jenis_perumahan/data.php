@@ -12,37 +12,40 @@
     <!-- /.box-header -->
     <div class="box-body">
         <?= $this->session->flashdata('pesan'); ?>
-        <table id="" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama Jenis Perumahan</th>
-                    <th>Aksi(s)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $no = 1;
-                foreach ($jenis->result() as $key => $data) { ?>
-                    <tr>
-                        <td style="width:10%;"><?= $no++ ?>.</td>
-                        <td><?= $data->nama_jenis ?></td>
-                        <td class="text-center" width="160px">
-                            <form action="<?= site_url('admin/jenisPerumahan/del') ?>" method="post">
-                                <a href="<?= site_url('admin/jenisPerumahan/edit/' . $data->id_jenis_perumahan) ?>" class="btn btn-warning btn-xs">
-                                    <i class="fa fa-pencil"></i> Edit
-                                </a>
-                                <input type="hidden" name="id_jenis_perumahan" value="<?= $data->id_jenis_perumahan ?>">
+        <div class="table-responsive">
 
-                                <a href="<?= site_url('admin/jenisPerumahan/del/' . $data->id_jenis_perumahan) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Yakin ?')">
-                                    <i class="fa fa-trash"></i> Hapus
-                                </a>
-                            </form>
-                        </td>
+            <table id="" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Jenis Perumahan</th>
+                        <th>Aksi(s)</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($jenis->result() as $key => $data) { ?>
+                        <tr>
+                            <td style="width:10%;"><?= $no++ ?>.</td>
+                            <td><?= $data->nama_jenis ?></td>
+                            <td class="text-center" width="160px">
+                                <form action="<?= site_url('admin/jenisPerumahan/del') ?>" method="post">
+                                    <a href="<?= site_url('admin/jenisPerumahan/edit/' . $data->id_jenis_perumahan) ?>" class="btn btn-warning btn-xs">
+                                        <i class="fa fa-pencil"></i> Edit
+                                    </a>
+                                    <input type="hidden" name="id_jenis_perumahan" value="<?= $data->id_jenis_perumahan ?>">
+
+                                    <a href="<?= site_url('admin/jenisPerumahan/del/' . $data->id_jenis_perumahan) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda Yakin ?')">
+                                        <i class="fa fa-trash"></i> Hapus
+                                    </a>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
