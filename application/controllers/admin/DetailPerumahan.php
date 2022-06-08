@@ -109,17 +109,17 @@ class DetailPerumahan extends CI_Controller
                 if (@$_FILES['image']['name'] != null) {
                     if ($this->upload->do_upload('image')) {
                         $item = $this->detail->get($post['id_perumahan'])->row();
-                        if ($item->foto_perumahan != null) {
-                            $target_file = './assets/uploads/perumahan/' . $item->foto_perumahan;
-                            unlink($target_file);
-                        }
+                        // if ($item->foto_perumahan != null) {
+                        //     $target_file = './assets/uploads/perumahan/' . $item->foto_perumahan;
+                        //     unlink($target_file);
+                        // }
                         $post['image'] = $this->upload->data('file_name');
                         $this->detail->edit($post);
                         if ($this->db->affected_rows() > 0) {
                             set_pesan('succes', 'Data Berhasil Dismpan');
                         }
                         var_dump($post);
-                        // redirect('admin/DetailPerumahan');
+                        redirect('admin/DetailPerumahan');
                     } else {
                         $error = $this->upload->display_error();
                         echo $error;
