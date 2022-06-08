@@ -67,10 +67,10 @@ class Users extends CI_Controller
                 'alamat'        => $input['alamat'],
                 'role'          => $input['role'],
                 'password'      => password_hash($input['password'], PASSWORD_DEFAULT),
-                'foto'          => 'user.png'
+                'foto_profil'          => 'user.png'
             ];
 
-            if ($this->users->add('users', $input_data)) {
+            if ($this->users->insert('tbl_user', $input_data)) {
                 set_pesan('data berhasil disimpan.');
                 redirect('admin/users');
             } else {
